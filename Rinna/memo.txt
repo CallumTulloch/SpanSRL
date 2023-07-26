@@ -1,0 +1,1 @@
+python ../Decode/decode_base.py 53 30 4 ../../Data/data_v2_under53_adddep2.json bert test

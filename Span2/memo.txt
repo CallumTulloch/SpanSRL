@@ -1,0 +1,1 @@
+python ../Decode/decode_span2.py 192 30 4 ../../../Data/common_data_v2_bert.json bert valid span2_common_data

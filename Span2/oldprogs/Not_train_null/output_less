@@ -1,0 +1,311 @@
+Some weights of the model checkpoint at cl-tohoku/bert-base-japanese-v2 were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+{'Arg': 0, 'Arg0': 1, 'Arg1': 2, 'Arg2': 3, 'Arg3': 4, 'Arg4': 5, 'Arg5': 6, 'ArgA': 7, 'ArgM': 8, 'ArgM2': 9, 'ArgM_ADV': 10, 'ArgM_AND': 11, 'ArgM_BUT': 12, 'ArgM_CAU': 13, 'ArgM_CMP': 14, 'ArgM_CND': 15, 'ArgM_CRT': 16, 'ArgM_DIR': 17, 'ArgM_EXT': 18, 'ArgM_GOL': 19, 'ArgM_LOC': 20, 'ArgM_MDF': 21, 'ArgM_MNR': 22, 'ArgM_MNS': 23, 'ArgM_NEG': 24, 'ArgM_PRP': 25, 'ArgM_PRX': 26, 'ArgM_REC': 27, 'ArgM_SCP': 28, 'ArgM_SPK': 29, 'ArgM_TMP': 30} 
+
+MAX_TOKEN = 66, MAX_LENGTH = 53, MAX_ARGUMENT_SEQUENCE_LENGTH = 30
+
+
+train, test, valid =  42488 5311 5311
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 0 	 loss 2994.8786526882905
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+Valid all_loss =  492.7137605845928 
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 1 	 loss 1717.1948506014305
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+Valid all_loss =  333.3180332612246 
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 2 	 loss 1071.334117982893
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+Valid all_loss =  306.60325244715204 
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 3 	 loss 635.0657104130478
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+No change in valid all_loss
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 4 	 loss 447.11435791698136
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+No change in valid all_loss
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 5 	 loss 366.06965973380375
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+No change in valid all_loss
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 6 	 loss 326.47706445303146
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+No change in valid all_loss
+
+Progress 0 / 42480 tensor(3)
+Progress 1600 / 42480 tensor(4)
+Progress 3200 / 42480 tensor(5)
+Progress 4800 / 42480 tensor(5)
+Progress 6400 / 42480 tensor(6)
+Progress 8000 / 42480 tensor(6)
+Progress 9600 / 42480 tensor(6)
+Progress 11200 / 42480 tensor(7)
+Progress 12800 / 42480 tensor(8)
+Progress 14400 / 42480 tensor(8)
+Progress 16000 / 42480 tensor(9)
+Progress 17600 / 42480 tensor(11)
+Progress 19200 / 42480 tensor(14)
+Progress 20800 / 42480 tensor(17)
+Progress 22400 / 42480 tensor(20)
+Progress 24000 / 42480 tensor(22)
+Progress 25600 / 42480 tensor(24)
+Progress 27200 / 42480 tensor(27)
+Progress 28800 / 42480 tensor(29)
+Progress 30400 / 42480 tensor(32)
+Progress 32000 / 42480 tensor(34)
+Progress 33600 / 42480 tensor(37)
+Progress 35200 / 42480 tensor(41)
+Progress 36800 / 42480 tensor(45)
+Progress 38400 / 42480 tensor(51)
+Progress 40000 / 42480 tensor(58)
+Progress 41600 / 42480 tensor(73)
+epoch 7 	 loss 294.7212979627941
+Validation Start
+
+Progress 0 / 5296
+Progress 1600 / 5296
+Progress 3200 / 5296
+Progress 4800 / 5296
+Some weights of the model checkpoint at cl-tohoku/bert-base-japanese-v2 were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+srl_ohuchi.py:293: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:204.)
+  sentences = torch.tensor(sentences, dtype=torch.long)
+srl_ohuchi.py:340: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_ohuchi.py:188: UserWarning: Implicit dimension choice for log_softmax has been deprecated. Change the call to include dim=X as an argument.
+  results.append( F.log_softmax(outs[b_idx, :, role]) )  # outs[b_idx, :, role] = [Max]
+srl_ohuchi.py:255: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+Stop. No change in valid all_loss
+
+
+ 6:39:20.387630 
+
