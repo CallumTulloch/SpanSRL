@@ -241,9 +241,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 classifier.to(device)
 
 
-from Evaluation.evaluate import cal_accuracy
 from Evaluation.evaluate import cal_label_f1
 from Evaluation.evaluate import cal_span_f1
+from Evaluation.evaluate import seq_fusion_matrix
 from Evaluation.evaluate import span2seq
 from Evaluation.evaluate import get_pred_dic_lists
 from utils.tools import filter_span_score
@@ -253,7 +253,8 @@ if __name__ == "__main__":
     dataset = mk_dataset(test_df, 1, 'bert')
     # モデルをロード
     #classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/Ohuchi_old/models/srl_ohuchi_incNull_f1_252_best.pth'))
-    classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/SRL/Span2/models/srl_span2_emnlp_eachEP.pth'))
+    #classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/Ohuchi_old/models/srl_ohuchi_incNull_f1_252_v2_best.pth'))
+    classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/SpanSRL/Span2/models/srl_span2_emnlp_eachEP.pth'))
 
     """
     Decode Area
@@ -346,6 +347,9 @@ if __name__ == "__main__":
     sf1 = cal_span_f1(predictions, span_answers, lab2id, MAX_LENGTH)
     print(sf1)
     sf1.to_csv('span2_span.csv')
+    #fm = seq_fusion_matrix(predictions, span_answers, lab2id)
+    #print(fm)
+    #fm.to_csv('span2_FusionMatrix.csv')
     
     # 解析用データ作成
     pred_seq = [span2seq(p, int(num_of_tokens)) for p, num_of_tokens in zip(predictions, test_df['num_of_tokens'].to_list())]
