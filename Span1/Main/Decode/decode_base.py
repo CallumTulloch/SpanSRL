@@ -4,6 +4,7 @@ import itertools
 import subprocess
 sys.path.append('../')
 sys.path.append('../../')
+sys.path.append('../../../')
 
 import time
 import pandas as pd
@@ -18,10 +19,7 @@ from transformers import AutoTokenizer
 from preprocess.base.mk_dataset import *
 from preprocess.base.netwroks import BertClassifierDecode
 from preprocess.base.prepare_data import *
-
-from utils.evaluate import cal_accuracy
-from utils.evaluate import cal_label_f1
-from utils.evaluate import cal_span_f1
+from Evaluation.evaluate import cal_label_f1
 from utils.tools import filter_span_score_for_batch_1
 
 
@@ -59,7 +57,7 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained("cl-tohoku/bert-base-japanese-v2")
     train_df, test_df, valid_df = get_train_test(MAX_LENGTH, MAX_ARGUMENT_SEQUENCE_LENGTH, DATA, LAB2ID)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # GPUの設定
-    test_df = test_df.sample(n=100, random_state=0).reset_index(drop=True)
+    #test_df = test_df.sample(n=100, random_state=0).reset_index(drop=True)
     classifier = BertClassifierDecode(OUTPUT_LAYER_DIM, MAX_LENGTH, device).to(device)
     # dataset, dateloader
     if sys.argv[5] == 'valid':

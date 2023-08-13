@@ -22,20 +22,19 @@ import torch.optim as optim
 import gc
 
 # NLPIR
-# DATAPATH = '../../../Data/data_v2.json'
+DATAPATH = '../../../Data/common_data_v2_bert.json'
+with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
+    DATA = pd.read_json(json_file)
+
+# EMNLP
+# DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
+# EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
 # 
 # with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
 #     DATA = pd.read_json(json_file)
-
-# EMNLP
-DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
-EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
-
-with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
-    DATA = pd.read_json(json_file)
-    
-with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
-    EXDATA = pd.read_json(json_file)
+#     
+# with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
+#     EXDATA = pd.read_json(json_file)
 
 # 正解ラベル（カテゴリー）をデータセットから取得
 labels = []
@@ -65,13 +64,13 @@ print(f'MAX_TOKEN = {MAX_TOKEN}, MAX_LENGTH = {MAX_LENGTH}, MAX_ARGUMENT_SEQUENC
 
 # 各種データ作成（学習，テスト，検証）
 DATA = DATA.sample(frac=1, random_state=0).reset_index(drop=True)
-test_df = get_train_test_decode(MAX_LENGTH, DATA, lab2id)
+test_df = get_train_test_decode(MAX_LENGTH, DATA, lab2id, 'test')
 
 # EMNLP
-EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
-extest_df = get_train_test_decode(MAX_LENGTH, EXDATA, lab2id)
-test_df=pd.concat([test_df,extest_df],axis=0)
-print(len(test_df))
+# EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
+# extest_df = get_train_test_decode(MAX_LENGTH, EXDATA, lab2id)
+# test_df=pd.concat([test_df,extest_df],axis=0)
+# print(len(test_df))
     
 from torch.utils.data import Dataset
 from transformers import BertModel
@@ -254,7 +253,8 @@ if __name__ == "__main__":
     # モデルをロード
     #classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/Ohuchi_old/models/srl_ohuchi_incNull_f1_252_best.pth'))
     #classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/Ohuchi_old/models/srl_ohuchi_incNull_f1_252_v2_best.pth'))
-    classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/SpanSRL/Span2/models/srl_span2_emnlp_eachEP.pth'))
+    #classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/SpanSRL/Span2/models/srl_span2_emnlp_eachEP.pth'))
+    classifier.load_state_dict(torch.load(f'/media/takeuchi/HDPH-UT/callum/SpanSRL/Span2/models/srl_span2_common_data_best.pth'))
 
     """
     Decode Area
@@ -347,9 +347,9 @@ if __name__ == "__main__":
     sf1 = cal_span_f1(predictions, span_answers, lab2id, MAX_LENGTH)
     print(sf1)
     sf1.to_csv('span2_span.csv')
-    #fm = seq_fusion_matrix(predictions, span_answers, lab2id)
-    #print(fm)
-    #fm.to_csv('span2_FusionMatrix.csv')
+    fm = seq_fusion_matrix(predictions, span_answers, lab2id)
+    print(fm)
+    fm.to_csv('span2_FusionMatrix.csv')
     
     # 解析用データ作成
     pred_seq = [span2seq(p, int(num_of_tokens)) for p, num_of_tokens in zip(predictions, test_df['num_of_tokens'].to_list())]

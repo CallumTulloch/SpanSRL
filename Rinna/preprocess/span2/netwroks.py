@@ -16,7 +16,7 @@ from transformers import AutoConfig, AutoModel
 class RinnaClassifierSpan2DecodeIntegrated(nn.Module):# ここはpretraind_model的なのを継承sルウ．
     def __init__(self, output_layer_dim, max_length, device):
         super(RinnaClassifierSpan2DecodeIntegrated, self).__init__()
-        #self.config = AutoConfig.from_pretrained("rinna/japanese-gpt-neox-3.6b")
+        self.config = AutoConfig.from_pretrained("rinna/japanese-gpt-neox-3.6b")
         
         # 各種変数定義
         self.output_layer_dim = output_layer_dim
@@ -40,7 +40,7 @@ class RinnaClassifierSpan2DecodeIntegrated(nn.Module):# ここはpretraind_model
     def _get_final_vecs(self, vec):
         vecs = [vec[:,i+1,:].view(-1, 2816) for i in range(self.max_length)]
         return vecs # vecs[self.max_length][batch][2816]
-    
+
     def forward(self, input_ids, pred_spans, token_num, span_available_indication_matrix, usage):
         # 順伝播の出力結果は辞書形式なので、必要な値のkeyを指定して取得する
         output = self.rinna(input_ids)
@@ -51,6 +51,7 @@ class RinnaClassifierSpan2DecodeIntegrated(nn.Module):# ここはpretraind_model
 
         # make span vec
         span_possible_tuples = [(i, j) for i in range(self.max_length) for j in range(self.max_length)]
+        
         span_vec_list, pred_inside_span_batch =[], []
         for start, end in pred_spans:
             pred_inside_spans = list(itertools.combinations_with_replacement(torch.arange(start, end+1), 2))    # 重複組み合わせ

@@ -29,7 +29,7 @@ from utils.evaluate import cal_label_f1
 from utils.tools_span2 import filter_span_score
 
 
-DATAPATH = '../../common_data_v2_rinna.json'
+DATAPATH = '../../../Data/common_data_v2_rinna3.json'
 
 # read data
 with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
@@ -50,10 +50,10 @@ print(LAB2ID, '\n')
 # 各種定義
 OUTPUT_LAYER_DIM = len(LABELS)                              # 全ラベルの数
 PRED_SEP_NUM = 10 + 2                                       # 述語情報のためのトークン数．sep:2, pred:8(最長)
-MAX_LENGTH = 192
+MAX_LENGTH = 254
 MAX_ARGUMENT_SEQUENCE_LENGTH = 30                           # 項の最高トークン数．（これより大きいものは予測不可能）
 MAX_TOKEN = MAX_LENGTH + PRED_SEP_NUM + 2                   # BERT に入力するトークン数．+1 は cls 分のトークン． 
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 SPAN_AVAILABLE_INDICATION = np.zeros([MAX_LENGTH, MAX_LENGTH])
 SPAN_AVAILABLE_INDICATION[:,:] = -1
 num_of_span_vec = 0
@@ -62,7 +62,7 @@ for span in list(itertools.combinations_with_replacement(np.arange(MAX_LENGTH), 
         SPAN_AVAILABLE_INDICATION[span[0], span[1]] = 1
         num_of_span_vec += 1
 NUM_OF_SPAN_VEC = num_of_span_vec
-MODEL_NAME = 'rinna_lora_span2'
+MODEL_NAME = 'rinna_lora_span2_rinna3'
 print(f'MAX_TOKEN = {MAX_TOKEN}, MAX_LENGTH = {MAX_LENGTH}, MAX_ARGUMENT_SEQUENCE_LENGTH = {MAX_ARGUMENT_SEQUENCE_LENGTH}\n\n')
 
 def decode(dataset, data_df):
@@ -142,7 +142,7 @@ def decode(dataset, data_df):
 
 if __name__ == "__main__":
     # 各種データ作成（学習，テスト，検証）
-    DATA = DATA.sample(frac=0.02, random_state=0).reset_index(drop=True)
+    DATA = DATA.sample(frac=1, random_state=0).reset_index(drop=True)
     tokenizer = AutoTokenizer.from_pretrained("rinna/japanese-gpt-neox-3.6b", use_fast=False)
     train_df, test_df, valid_df = get_train_test(MAX_LENGTH, DATA, LAB2ID)
 
@@ -162,9 +162,9 @@ if __name__ == "__main__":
         #task_type="SEQ_CLS", # テキスト分類の場合は"SEQ_CLS"となる.modules_to_saveにスコアとくらしフィカーションを追加．自前の場合は設定しない，~~classifierのモデルとかで使う．
         modules_to_save=['my_linear', 'my_linear2']   # LoRA層以外の学習させたい層.LoRaは適用されない．LoRAで置き換えた部分以外は学習させていない->自分でoptimizer指定
     )
-    classifier = RinnaClassifierSpan2DecodeIntegrated(OUTPUT_LAYER_DIM, MAX_LENGTH, device).to(device)
-    classifier.rinna.pad_token_id = 0 # tokenizer の仕様
-    classifier = get_peft_model(classifier, config)
+    classifier = RinnaClassifierSpan2DecodeIntegrated(OUTPUT_LAYER_DIM, MAX_LENGTH, device)
+    classifier.config.pad_token_id = tokenizer.pad_token_id
+    classifier = get_peft_model(classifier, config).to(device)
 
     #ここでは全部ちゃんと設定しなくてはならない．
     base_params = [p for n, p in classifier.named_parameters() if "my_linear" not in n]
@@ -173,9 +173,11 @@ if __name__ == "__main__":
     #    {'params': classifier.my_linear.parameters(), 'lr': 1e-4},
     #    {'params': classifier.my_linear2.parameters(), 'lr': 1e-4},
     #])
-    optimizer = optim.Adam([
-        {'params': classifier.parameters()}
-    ])
+    #optimizer = optim.Adam([
+    #    {'params': classifier.parameters()}
+    #])
+    optimizer = optim.AdamW([
+        {'params': classifier.parameters(), 'lr': 2e-4}])
     
     """
     Train
@@ -234,7 +236,7 @@ if __name__ == "__main__":
             classifier.save_pretrained(f"../../models/{MODEL_NAME}/")
             continue
 
-        elif (prev_f1 >= f1) and (patience_counter < 4):   # 10回連続でf1が下がらなければ終了
+        elif (prev_f1 >= f1) and (patience_counter < 2):   # 10回連続でf1が下がらなければ終了
             print('No change in valid f1\n') 
             patience_counter += 1     
             continue
@@ -249,6 +251,8 @@ if __name__ == "__main__":
     """
     Test
     """
-    classifier = RinnaClassifierSpan2DecodeIntegrated(OUTPUT_LAYER_DIM, MAX_LENGTH, device).to(device)
-    classifier = PeftModel.from_pretrained(classifier, f"../../models/{MODEL_NAME}/")
+    classifier = RinnaClassifierSpan2DecodeIntegrated(OUTPUT_LAYER_DIM, MAX_LENGTH, device)
+    classifier = PeftModel.from_pretrained(classifier, f"../../models/{MODEL_NAME}/").to(device)
+    classifier.config.pad_token_id = tokenizer.pad_token_id
+
     print(decode(test_dataset, test_df))

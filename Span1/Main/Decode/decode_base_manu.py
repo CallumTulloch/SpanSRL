@@ -20,7 +20,7 @@ from transformers import AutoTokenizer
 from preprocess.base.mk_dataset import *
 from preprocess.base.netwroks import BertClassifierDecode
 from preprocess.base.prepare_data import *
-from Evaluation.evaluate import cal_accuracy
+from Evaluation.evaluate import seq_fusion_matrix
 from Evaluation.evaluate import cal_label_f1
 from Evaluation.evaluate import cal_span_f1
 from Evaluation.evaluate import span2seq
@@ -28,20 +28,19 @@ from Evaluation.evaluate import get_pred_dic_lists
 from utils.tools import filter_span_score_for_batch_1
 
 # NLPIR
-# DATAPATH = '../../../Data/data_v2.json'
+DATAPATH = '../../../Data/common_data_v2_bert.json'
+with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
+    DATA = pd.read_json(json_file)
+
+# EMNLP
+# DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
+# EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
 # 
 # with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
 #     DATA = pd.read_json(json_file)
-
-# EMNLP
-DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
-EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
-
-with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
-    DATA = pd.read_json(json_file)
-    
-with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
-    EXDATA = pd.read_json(json_file)
+#     
+# with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
+#     EXDATA = pd.read_json(json_file)
 
     
 # 正解ラベル
@@ -57,11 +56,11 @@ LAB2ID = dict(zip(LABELS, list(range(len(LABELS)))))
 print(LAB2ID, '\n')
 
 # 各種定義
-OUTPUT_LAYER_DIM = len(LABELS)                              # 全ラベルの数
-PRED_SEP_NUM = 10 + 2                              # 述語情報のためのトークン数．sep:2, pred:8(最長)
-MAX_LENGTH = 252                           # ラベル割り当てするトークン数. 文章の最長は 243 token
-MAX_ARGUMENT_SEQUENCE_LENGTH = 30         # 項の最高トークン数．（これより大きいものは予測不可能）
-MAX_TOKEN = MAX_LENGTH + PRED_SEP_NUM + 1         # BERT に入力するトークン数．+1 は cls 分のトークン． 
+OUTPUT_LAYER_DIM = len(LABELS)              # 全ラベルの数
+PRED_SEP_NUM = 10 + 2                       # 述語情報のためのトークン数．sep:2, pred:8(最長)
+MAX_LENGTH = 252                            # ラベル割り当てするトークン数. 文章の最長は 243 token
+MAX_ARGUMENT_SEQUENCE_LENGTH = 30           # 項の最高トークン数．（これより大きいものは予測不可能）
+MAX_TOKEN = MAX_LENGTH + PRED_SEP_NUM + 1   # BERT に入力するトークン数．+1 は cls 分のトークン． 
 BATCH_SIZE = 1
 
 if __name__ == "__main__":
@@ -70,17 +69,17 @@ if __name__ == "__main__":
     train_df, test_df, valid_df = get_train_test_decode(MAX_LENGTH, MAX_ARGUMENT_SEQUENCE_LENGTH, DATA, LAB2ID)
     
     # EMNLP
-    EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
-    extrain_df, extest_df, exvalid_df = get_train_test_decode(MAX_LENGTH, MAX_ARGUMENT_SEQUENCE_LENGTH, EXDATA, LAB2ID)
-    test_df=pd.concat([test_df,extest_df],axis=0)
-    print(len(test_df))
+    # EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
+    # extrain_df, extest_df, exvalid_df = get_train_test_decode(MAX_LENGTH, MAX_ARGUMENT_SEQUENCE_LENGTH, EXDATA, LAB2ID)
+    # test_df=pd.concat([test_df,extest_df],axis=0)
+    # print(len(test_df))
     
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # GPUの設定
     classifier = BertClassifierDecode(OUTPUT_LAYER_DIM, MAX_LENGTH, device).to(device)
     
     # dataset, dateloader
     dataset = mk_dataset_decode(test_df, BATCH_SIZE, MAX_LENGTH, MAX_TOKEN, PRED_SEP_NUM, tokenizer)
-    classifier.load_state_dict(torch.load(f'../../models/srl_base_252_enc4_best.pth'))
+    classifier.load_state_dict(torch.load(f'../../models/srl_base_common_data_best.pth'))
 
     """
     Decode Area
@@ -164,6 +163,9 @@ if __name__ == "__main__":
     sf1 = cal_span_f1(predictions, span_answers, LAB2ID, MAX_LENGTH)
     print(sf1)
     sf1.to_csv('span1_span.csv')
+    fm = seq_fusion_matrix(predictions, span_answers, LAB2ID)
+    print(fm)
+    fm.to_csv('span1_FusionMatrix.csv')
     
     # 解析用データ作成
     pred_seq = [span2seq(p, int(num_of_tokens)) for p, num_of_tokens in zip(predictions, test_df['num_of_tokens'].to_list())]

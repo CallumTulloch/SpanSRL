@@ -116,7 +116,7 @@ def get_train_test(MAX_LENGTH, data, lab2id):
 
 
 # valid と test はデコードを使用するため，データ拡張は必要ない．（逆に行うと不正確）
-def get_train_test_decode(MAX_LENGTH, data, lab2id):
+def get_train_test_decode(MAX_LENGTH, data, lab2id, usage):
     # 正解ラベル作成
     train_df, test_valid_df = train_test_split(data, test_size=0.2, random_state=0)
     test_df, valid_df = train_test_split(test_valid_df, test_size=0.5, random_state=0)
@@ -124,19 +124,21 @@ def get_train_test_decode(MAX_LENGTH, data, lab2id):
     """
     test
     """
-    #features = []
-    #span_answers=[]
-    #for args, pred, sentence, sentenceid in zip(test_df['args'].tolist(), test_df['predicate'].tolist(), test_df['sentence'].tolist(), test_df['sentenceID'].tolist()):
-    #    arg_info=[[role, pred['word_start'], pred['word_end'], find_combination_index(MAX_LENGTH, (int(pred['word_start']), int(pred['word_end'])))] for role in lab2id.values()]
-    #    span_answer=[]
-    #    for arg in args:
-    #        arg_info[lab2id[arg['argrole']]] = [lab2id[arg['argrole']], int(arg['word_start']), int(arg['word_end']), find_combination_index(MAX_LENGTH, (int(arg['word_start']), int(arg['word_end']))) ]
-    #        span_answer.append([arg['argrole'], arg['word_start'], arg['word_end'], find_combination_index(MAX_LENGTH, (int(arg['word_start']), int(arg['word_end']))) ])
-    #    features.append([arg_info, pred, sentence, len(sentence.split()), sentenceid, args])
-    #    span_answers.append(span_answer)
-    ## 学習データ，テストデータ作成．
-    #test_df2 = pd.DataFrame(features, columns=['args', 'predicate', 'sentence', 'num_of_tokens', 'sentenceID', 'args2'])
-    #test_df2['span_answers'] = span_answers
+    features = []
+    span_answers=[]
+    for args, pred, sentence, sentenceid in zip(test_df['args'].tolist(), test_df['predicate'].tolist(), test_df['sentence'].tolist(), test_df['sentenceID'].tolist()):
+        arg_info=[[role, pred['word_start'], pred['word_end'], find_combination_index(MAX_LENGTH, (int(pred['word_start']), int(pred['word_end'])))] for role in lab2id.values()]
+        span_answer=[]
+        for arg in args:
+            arg_info[lab2id[arg['argrole']]] = [lab2id[arg['argrole']], int(arg['word_start']), int(arg['word_end']), find_combination_index(MAX_LENGTH, (int(arg['word_start']), int(arg['word_end']))) ]
+            span_answer.append([arg['argrole'], arg['word_start'], arg['word_end'], find_combination_index(MAX_LENGTH, (int(arg['word_start']), int(arg['word_end']))) ])
+        features.append([arg_info, pred, sentence, len(sentence.split()), sentenceid, args])
+        span_answers.append(span_answer)
+    # 学習データ，テストデータ作成．
+    test_df2 = pd.DataFrame(features, columns=['args', 'predicate', 'sentence', 'num_of_tokens', 'sentenceID', 'args2'])
+    test_df2['span_answers'] = span_answers
+    if usage == 'test':
+        return test_df2
     
     """
     valid
@@ -155,4 +157,5 @@ def get_train_test_decode(MAX_LENGTH, data, lab2id):
     valid_df2 = pd.DataFrame(features, columns=['args', 'predicate', 'sentence', 'num_of_tokens', 'sentenceID', 'args2'])
     valid_df2['span_answers'] = span_answers
 
-    return valid_df2
+    if usage == 'valid':
+        return valid_df2

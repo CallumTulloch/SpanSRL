@@ -1,0 +1,2530 @@
+Some weights of the model checkpoint at cl-tohoku/bert-base-japanese-v2 were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+{'Arg': 0, 'Arg0': 1, 'Arg1': 2, 'Arg2': 3, 'Arg3': 4, 'Arg4': 5, 'Arg5': 6, 'ArgA': 7, 'ArgM': 8, 'ArgM2': 9, 'ArgM_ADV': 10, 'ArgM_AND': 11, 'ArgM_BUT': 12, 'ArgM_CAU': 13, 'ArgM_CMP': 14, 'ArgM_CND': 15, 'ArgM_CRT': 16, 'ArgM_DIR': 17, 'ArgM_EXT': 18, 'ArgM_GOL': 19, 'ArgM_LOC': 20, 'ArgM_MDF': 21, 'ArgM_MNR': 22, 'ArgM_MNS': 23, 'ArgM_NEG': 24, 'ArgM_PRP': 25, 'ArgM_PRX': 26, 'ArgM_REC': 27, 'ArgM_SCP': 28, 'ArgM_SPK': 29, 'ArgM_TMP': 30} 
+
+MAX_TOKEN = 265, MAX_LENGTH = 252, MAX_ARGUMENT_SEQUENCE_LENGTH = 30
+
+
+train, test, valid =  42022 5253 5253
+train, test, valid =  43310 5253 5253
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 0 	 loss 705.5087562482804
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1233.0000      222.0       1455.0       467.0   1700.0   
+Arg1         2884.0000      838.0       3722.0      1149.0   4033.0   
+Arg2          984.0000      627.0       1611.0       633.0   1617.0   
+Arg3            2.0000       19.0         21.0       101.0    103.0   
+Arg4            1.0000        1.0          2.0        42.0     43.0   
+Arg5            0.0000        1.0          1.0        17.0     17.0   
+ArgA            0.0000        0.0          0.0         4.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      230.0000      273.0        503.0       195.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU        6.0000        9.0         15.0        64.0     70.0   
+ArgM_CMP        5.0000        6.0         11.0        17.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        0.0000        0.0          0.0         8.0      8.0   
+ArgM_DIR        0.0000        0.0          0.0        28.0     28.0   
+ArgM_EXT        0.0000        2.0          2.0        47.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       24.0000       10.0         34.0       139.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       36.0000       39.0         75.0        80.0    116.0   
+ArgM_MNS        3.0000       17.0         20.0        27.0     30.0   
+ArgM_NEG       46.0000       17.0         63.0        33.0     79.0   
+ArgM_PRP        0.0000        0.0          0.0        29.0     29.0   
+ArgM_PRX        8.0000        8.0         16.0        80.0     88.0   
+ArgM_REC        0.0000        0.0          0.0        64.0     64.0   
+ArgM_SCP        4.0000       16.0         20.0        42.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      107.0000       71.0        178.0       111.0    218.0   
+sum          5573.0000     2176.0       7749.0      3396.0   8969.0   
+precision       0.7192        NaN          NaN         NaN      NaN   
+recall          0.6214        NaN          NaN         NaN      NaN   
+f1              0.6667        NaN          NaN         NaN      NaN   
+f1_macro        0.3455        NaN          NaN         NaN      NaN   
+
+           precision  recall      f1  
+Arg              NaN     NaN     NaN  
+Arg0          0.8474  0.7253  0.7816  
+Arg1          0.7749  0.7151  0.7438  
+Arg2          0.6108  0.6085  0.6097  
+Arg3          0.0952  0.0194  0.0323  
+Arg4          0.5000  0.0233  0.0444  
+Arg5          0.0000  0.0000     NaN  
+ArgA             NaN  0.0000     NaN  
+ArgM             NaN  0.0000     NaN  
+ArgM2            NaN     NaN     NaN  
+ArgM_ADV      0.4573  0.5412  0.4957  
+ArgM_AND         NaN  0.0000     NaN  
+ArgM_BUT         NaN  0.0000     NaN  
+ArgM_CAU      0.4000  0.0857  0.1412  
+ArgM_CMP      0.4545  0.2273  0.3030  
+ArgM_CND         NaN  0.0000     NaN  
+ArgM_CRT         NaN  0.0000     NaN  
+ArgM_DIR         NaN  0.0000     NaN  
+ArgM_EXT      0.0000  0.0000     NaN  
+ArgM_GOL         NaN  0.0000     NaN  
+ArgM_LOC      0.7059  0.1472  0.2437  
+ArgM_MDF         NaN  0.0000     NaN  
+ArgM_MNR      0.4800  0.3103  0.3770  
+ArgM_MNS      0.1500  0.1000  0.1200  
+ArgM_NEG      0.7302  0.5823  0.6479  
+ArgM_PRP         NaN  0.0000     NaN  
+ArgM_PRX      0.5000  0.0909  0.1538  
+ArgM_REC         NaN  0.0000     NaN  
+ArgM_SCP      0.2000  0.0870  0.1212  
+ArgM_SPK         NaN     NaN     NaN  
+ArgM_TMP      0.6011  0.4908  0.5404  
+sum           7.5073  4.7543  5.3556  
+precision        NaN     NaN     NaN  
+recall           NaN     NaN     NaN  
+f1               NaN     NaN     NaN  
+f1_macro         NaN     NaN     NaN  
+Valid f1 =  0.6667 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 1 	 loss 216.66256741905818
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1291.0000      171.0       1462.0       409.0   1700.0   
+Arg1         2918.0000      656.0       3574.0      1115.0   4033.0   
+Arg2         1033.0000      492.0       1525.0       584.0   1617.0   
+Arg3           12.0000       32.0         44.0        91.0    103.0   
+Arg4            8.0000        9.0         17.0        35.0     43.0   
+Arg5            6.0000        0.0          6.0        11.0     17.0   
+ArgA            0.0000        0.0          0.0         4.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      176.0000       97.0        273.0       249.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       17.0000       17.0         34.0        53.0     70.0   
+ArgM_CMP        5.0000       10.0         15.0        17.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        0.0000        2.0          2.0         8.0      8.0   
+ArgM_DIR        0.0000        1.0          1.0        28.0     28.0   
+ArgM_EXT        1.0000        3.0          4.0        46.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       44.0000       22.0         66.0       119.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       41.0000       33.0         74.0        75.0    116.0   
+ArgM_MNS        9.0000       29.0         38.0        21.0     30.0   
+ArgM_NEG       61.0000       22.0         83.0        18.0     79.0   
+ArgM_PRP        1.0000        3.0          4.0        28.0     29.0   
+ArgM_PRX       30.0000       25.0         55.0        58.0     88.0   
+ArgM_REC       17.0000        1.0         18.0        47.0     64.0   
+ArgM_SCP        8.0000       27.0         35.0        38.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      130.0000       54.0        184.0        88.0    218.0   
+sum          5808.0000     1706.0       7514.0      3161.0   8969.0   
+precision       0.7730        NaN          NaN         NaN      NaN   
+recall          0.6476        NaN          NaN         NaN      NaN   
+f1              0.7047        NaN          NaN         NaN      NaN   
+f1_macro        0.5101        NaN          NaN         NaN      NaN   
+
+           precision  recall      f1  
+Arg              NaN     NaN     NaN  
+Arg0          0.8830  0.7594  0.8166  
+Arg1          0.8165  0.7235  0.7672  
+Arg2          0.6774  0.6388  0.6575  
+Arg3          0.2727  0.1165  0.1633  
+Arg4          0.4706  0.1860  0.2667  
+Arg5          1.0000  0.3529  0.5217  
+ArgA             NaN  0.0000     NaN  
+ArgM             NaN  0.0000     NaN  
+ArgM2            NaN     NaN     NaN  
+ArgM_ADV      0.6447  0.4141  0.5043  
+ArgM_AND         NaN  0.0000     NaN  
+ArgM_BUT         NaN  0.0000     NaN  
+ArgM_CAU      0.5000  0.2429  0.3269  
+ArgM_CMP      0.3333  0.2273  0.2703  
+ArgM_CND         NaN  0.0000     NaN  
+ArgM_CRT      0.0000  0.0000     NaN  
+ArgM_DIR      0.0000  0.0000     NaN  
+ArgM_EXT      0.2500  0.0213  0.0392  
+ArgM_GOL         NaN  0.0000     NaN  
+ArgM_LOC      0.6667  0.2699  0.3843  
+ArgM_MDF         NaN  0.0000     NaN  
+ArgM_MNR      0.5541  0.3534  0.4316  
+ArgM_MNS      0.2368  0.3000  0.2647  
+ArgM_NEG      0.7349  0.7722  0.7531  
+ArgM_PRP      0.2500  0.0345  0.0606  
+ArgM_PRX      0.5455  0.3409  0.4196  
+ArgM_REC      0.9444  0.2656  0.4146  
+ArgM_SCP      0.2286  0.1739  0.1975  
+ArgM_SPK         NaN     NaN     NaN  
+ArgM_TMP      0.7065  0.5963  0.6468  
+sum          10.7157  6.7896  7.9064  
+precision        NaN     NaN     NaN  
+recall           NaN     NaN     NaN  
+f1               NaN     NaN     NaN  
+f1_macro         NaN     NaN     NaN  
+Valid f1 =  0.7047 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 2 	 loss 151.26914034818765
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1308.0000      180.0       1488.0       392.0   1700.0   
+Arg1         2976.0000      706.0       3682.0      1057.0   4033.0   
+Arg2         1035.0000      411.0       1446.0       582.0   1617.0   
+Arg3           35.0000       25.0         60.0        68.0    103.0   
+Arg4           11.0000        8.0         19.0        32.0     43.0   
+Arg5            9.0000        2.0         11.0         8.0     17.0   
+ArgA            0.0000        0.0          0.0         4.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      171.0000       99.0        270.0       254.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       27.0000       20.0         47.0        43.0     70.0   
+ArgM_CMP        4.0000        4.0          8.0        18.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        4.0000        5.0          9.0         4.0      8.0   
+ArgM_DIR        4.0000        1.0          5.0        24.0     28.0   
+ArgM_EXT        7.0000        9.0         16.0        40.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       27.0000       12.0         39.0       136.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       47.0000       41.0         88.0        69.0    116.0   
+ArgM_MNS       10.0000       30.0         40.0        20.0     30.0   
+ArgM_NEG       68.0000       31.0         99.0        11.0     79.0   
+ArgM_PRP        9.0000        4.0         13.0        20.0     29.0   
+ArgM_PRX       36.0000       36.0         72.0        52.0     88.0   
+ArgM_REC       35.0000        3.0         38.0        29.0     64.0   
+ArgM_SCP        5.0000       17.0         22.0        41.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      136.0000       64.0        200.0        82.0    218.0   
+sum          5964.0000     1708.0       7672.0      3005.0   8969.0   
+precision       0.7774        NaN          NaN         NaN      NaN   
+recall          0.6650        NaN          NaN         NaN      NaN   
+f1              0.7168        NaN          NaN         NaN      NaN   
+f1_macro        0.6446        NaN          NaN         NaN      NaN   
+
+           precision  recall      f1  
+Arg              NaN     NaN     NaN  
+Arg0          0.8790  0.7694  0.8206  
+Arg1          0.8083  0.7379  0.7715  
+Arg2          0.7158  0.6401  0.6758  
+Arg3          0.5833  0.3398  0.4294  
+Arg4          0.5789  0.2558  0.3548  
+Arg5          0.8182  0.5294  0.6429  
+ArgA             NaN  0.0000     NaN  
+ArgM             NaN  0.0000     NaN  
+ArgM2            NaN     NaN     NaN  
+ArgM_ADV      0.6333  0.4024  0.4921  
+ArgM_AND         NaN  0.0000     NaN  
+ArgM_BUT         NaN  0.0000     NaN  
+ArgM_CAU      0.5745  0.3857  0.4615  
+ArgM_CMP      0.5000  0.1818  0.2667  
+ArgM_CND         NaN  0.0000     NaN  
+ArgM_CRT      0.4444  0.5000  0.4706  
+ArgM_DIR      0.8000  0.1429  0.2424  
+ArgM_EXT      0.4375  0.1489  0.2222  
+ArgM_GOL         NaN  0.0000     NaN  
+ArgM_LOC      0.6923  0.1656  0.2673  
+ArgM_MDF         NaN  0.0000     NaN  
+ArgM_MNR      0.5341  0.4052  0.4608  
+ArgM_MNS      0.2500  0.3333  0.2857  
+ArgM_NEG      0.6869  0.8608  0.7640  
+ArgM_PRP      0.6923  0.3103  0.4286  
+ArgM_PRX      0.5000  0.4091  0.4500  
+ArgM_REC      0.9211  0.5469  0.6863  
+ArgM_SCP      0.2273  0.1087  0.1471  
+ArgM_SPK         NaN     NaN     NaN  
+ArgM_TMP      0.6800  0.6239  0.6507  
+sum          12.9572  8.7979  9.9910  
+precision        NaN     NaN     NaN  
+recall           NaN     NaN     NaN  
+f1               NaN     NaN     NaN  
+f1_macro         NaN     NaN     NaN  
+Valid f1 =  0.7168 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 3 	 loss 94.46454039105447
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1231.0000      123.0       1354.0       469.0   1700.0   
+Arg1         3114.0000      846.0       3960.0       919.0   4033.0   
+Arg2         1071.0000      422.0       1493.0       546.0   1617.0   
+Arg3           34.0000       20.0         54.0        69.0    103.0   
+Arg4           10.0000        6.0         16.0        33.0     43.0   
+Arg5            4.0000        3.0          7.0        13.0     17.0   
+ArgA            3.0000        1.0          4.0         1.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      219.0000      155.0        374.0       206.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       32.0000       43.0         75.0        38.0     70.0   
+ArgM_CMP        5.0000       11.0         16.0        17.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        3.0000        1.0          4.0         5.0      8.0   
+ArgM_DIR        8.0000        0.0          8.0        20.0     28.0   
+ArgM_EXT       13.0000       25.0         38.0        34.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       52.0000       31.0         83.0       111.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       53.0000       39.0         92.0        63.0    116.0   
+ArgM_MNS        6.0000       14.0         20.0        24.0     30.0   
+ArgM_NEG       71.0000       27.0         98.0         8.0     79.0   
+ArgM_PRP        7.0000        3.0         10.0        22.0     29.0   
+ArgM_PRX       34.0000       21.0         55.0        54.0     88.0   
+ArgM_REC       22.0000        1.0         23.0        42.0     64.0   
+ArgM_SCP        5.0000       14.0         19.0        41.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      120.0000       50.0        170.0        98.0    218.0   
+sum          6117.0000     1856.0       7973.0      2852.0   8969.0   
+precision       0.7672        NaN          NaN         NaN      NaN   
+recall          0.6820        NaN          NaN         NaN      NaN   
+f1              0.7221        NaN          NaN         NaN      NaN   
+f1_macro        0.6916        NaN          NaN         NaN      NaN   
+
+           precision  recall       f1  
+Arg              NaN     NaN      NaN  
+Arg0          0.9092  0.7241   0.8062  
+Arg1          0.7864  0.7721   0.7792  
+Arg2          0.7173  0.6623   0.6887  
+Arg3          0.6296  0.3301   0.4331  
+Arg4          0.6250  0.2326   0.3390  
+Arg5          0.5714  0.2353   0.3333  
+ArgA          0.7500  0.7500   0.7500  
+ArgM             NaN  0.0000      NaN  
+ArgM2            NaN     NaN      NaN  
+ArgM_ADV      0.5856  0.5153   0.5482  
+ArgM_AND         NaN  0.0000      NaN  
+ArgM_BUT         NaN  0.0000      NaN  
+ArgM_CAU      0.4267  0.4571   0.4414  
+ArgM_CMP      0.3125  0.2273   0.2632  
+ArgM_CND         NaN  0.0000      NaN  
+ArgM_CRT      0.7500  0.3750   0.5000  
+ArgM_DIR      1.0000  0.2857   0.4444  
+ArgM_EXT      0.3421  0.2766   0.3059  
+ArgM_GOL         NaN  0.0000      NaN  
+ArgM_LOC      0.6265  0.3190   0.4228  
+ArgM_MDF         NaN  0.0000      NaN  
+ArgM_MNR      0.5761  0.4569   0.5096  
+ArgM_MNS      0.3000  0.2000   0.2400  
+ArgM_NEG      0.7245  0.8987   0.8023  
+ArgM_PRP      0.7000  0.2414   0.3590  
+ArgM_PRX      0.6182  0.3864   0.4755  
+ArgM_REC      0.9565  0.3438   0.5057  
+ArgM_SCP      0.2632  0.1087   0.1538  
+ArgM_SPK         NaN     NaN      NaN  
+ArgM_TMP      0.7059  0.5505   0.6186  
+sum          13.8766  9.3489  10.7199  
+precision        NaN     NaN      NaN  
+recall           NaN     NaN      NaN  
+f1               NaN     NaN      NaN  
+f1_macro         NaN     NaN      NaN  
+Valid f1 =  0.7221 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 4 	 loss 65.1219648618935
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1322.0000      214.0       1536.0       378.0   1700.0   
+Arg1         3017.0000      915.0       3932.0      1016.0   4033.0   
+Arg2         1103.0000      490.0       1593.0       514.0   1617.0   
+Arg3           30.0000       14.0         44.0        73.0    103.0   
+Arg4            2.0000        4.0          6.0        41.0     43.0   
+Arg5            8.0000        1.0          9.0         9.0     17.0   
+ArgA            0.0000        0.0          0.0         4.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      191.0000      121.0        312.0       234.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU        9.0000       12.0         21.0        61.0     70.0   
+ArgM_CMP        4.0000        6.0         10.0        18.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        3.0000        3.0          6.0         5.0      8.0   
+ArgM_DIR        3.0000        1.0          4.0        25.0     28.0   
+ArgM_EXT       17.0000       32.0         49.0        30.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       50.0000       23.0         73.0       113.0    163.0   Valid f1
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       64.0000       56.0        120.0        52.0    116.0   
+ArgM_MNS        7.0000       22.0         29.0        23.0     30.0   
+ArgM_NEG       68.0000       39.0        107.0        11.0     79.0   
+ArgM_PRP        5.0000        2.0          7.0        24.0     29.0   
+ArgM_PRX       42.0000       37.0         79.0        46.0     88.0   
+ArgM_REC       30.0000        3.0         33.0        34.0     64.0   
+ArgM_SCP        3.0000       14.0         17.0        43.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      138.0000       63.0        201.0        80.0    218.0   
+sum          6116.0000     2072.0       8188.0      2853.0   8969.0   
+precision       0.7469        NaN          NaN         NaN      NaN   
+recall          0.6819        NaN          NaN         NaN      NaN   
+f1              0.7129        NaN          NaN         NaN      NaN   
+f1_macro        0.6059        NaN          NaN         NaN      NaN   
+
+           precision  recall      f1  
+Arg              NaN     NaN     NaN  
+Arg0          0.8607  0.7776  0.8171  
+Arg1          0.7673  0.7481  0.7576  
+Arg2          0.6924  0.6821  0.6872  
+Arg3          0.6818  0.2913  0.4082  
+Arg4          0.3333  0.0465  0.0816  
+Arg5          0.8889  0.4706  0.6154  
+ArgA             NaN  0.0000     NaN  
+ArgM             NaN  0.0000     NaN  
+ArgM2            NaN     NaN     NaN  
+ArgM_ADV      0.6122  0.4494  0.5183  
+ArgM_AND         NaN  0.0000     NaN  
+ArgM_BUT         NaN  0.0000     NaN  
+ArgM_CAU      0.4286  0.1286  0.1978  
+ArgM_CMP      0.4000  0.1818  0.2500  
+ArgM_CND         NaN  0.0000     NaN  
+ArgM_CRT      0.5000  0.3750  0.4286  
+ArgM_DIR      0.7500  0.1071  0.1875  
+ArgM_EXT      0.3469  0.3617  0.3542  
+ArgM_GOL         NaN  0.0000     NaN  
+ArgM_LOC      0.6849  0.3067  0.4237  
+ArgM_MDF         NaN  0.0000     NaN  
+ArgM_MNR      0.5333  0.5517  0.5424  
+ArgM_MNS      0.2414  0.2333  0.2373  
+ArgM_NEG      0.6355  0.8608  0.7312  
+ArgM_PRP      0.7143  0.1724  0.2778  
+ArgM_PRX      0.5316  0.4773  0.5030  
+ArgM_REC      0.9091  0.4688  0.6186  
+ArgM_SCP      0.1765  0.0652  0.0952  
+ArgM_SPK         NaN     NaN     NaN  
+ArgM_TMP      0.6866  0.6330  0.6587  
+sum          12.3753  8.3891  9.3912  
+precision        NaN     NaN     NaN  
+recall           NaN     NaN     NaN  
+f1               NaN     NaN     NaN  
+f1_macro         NaN     NaN     NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 5 	 loss 42.91115395219822
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1470.0000      410.0       1880.0       230.0   1700.0   
+Arg1         3051.0000      761.0       3812.0       982.0   4033.0   
+Arg2         1083.0000      399.0       1482.0       534.0   1617.0   
+Arg3           29.0000       31.0         60.0        74.0    103.0   
+Arg4           13.0000        8.0         21.0        30.0     43.0   
+Arg5            5.0000        1.0          6.0        12.0     17.0   
+ArgA            2.0000        0.0          2.0         2.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      199.0000      104.0        303.0       226.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       30.0000       37.0         67.0        40.0     70.0   
+ArgM_CMP        5.0000        8.0         13.0        17.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        3.0000        2.0          5.0         5.0      8.0   
+ArgM_DIR        5.0000        3.0          8.0        23.0     28.0   
+ArgM_EXT       13.0000       20.0         33.0        34.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       54.0000       23.0         77.0       109.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       64.0000       48.0        112.0        52.0    116.0   
+ArgM_MNS        7.0000       17.0         24.0        23.0     30.0   
+ArgM_NEG       72.0000       51.0        123.0         7.0     79.0   
+ArgM_PRP       13.0000        7.0         20.0        16.0     29.0   
+ArgM_PRX       42.0000       40.0         82.0        46.0     88.0   
+ArgM_REC       37.0000        3.0         40.0        27.0     64.0   
+ArgM_SCP       15.0000       37.0         52.0        31.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      136.0000       57.0        193.0        82.0    218.0   
+sum          6349.0000     2067.0       8416.0      2620.0   8969.0   
+precision       0.7544        NaN          NaN         NaN      NaN   
+recall          0.7079        NaN          NaN         NaN      NaN   
+f1              0.7304        NaN          NaN         NaN      NaN   
+f1_macro        0.7430        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.7819   0.8647   0.8212  
+Arg1          0.8004   0.7565   0.7778  
+Arg2          0.7308   0.6698   0.6989  
+Arg3          0.4833   0.2816   0.3558  
+Arg4          0.6190   0.3023   0.4062  
+Arg5          0.8333   0.2941   0.4348  
+ArgA          1.0000   0.5000   0.6667  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6568   0.4682   0.5467  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.4478   0.4286   0.4380  
+ArgM_CMP      0.3846   0.2273   0.2857  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.6000   0.3750   0.4615  
+ArgM_DIR      0.6250   0.1786   0.2778  
+ArgM_EXT      0.3939   0.2766   0.3250  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7013   0.3313   0.4500  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5714   0.5517   0.5614  
+ArgM_MNS      0.2917   0.2333   0.2593  
+ArgM_NEG      0.5854   0.9114   0.7129  
+ArgM_PRP      0.6500   0.4483   0.5306  
+ArgM_PRX      0.5122   0.4773   0.4941  
+ArgM_REC      0.9250   0.5781   0.7115  
+ArgM_SCP      0.2885   0.3261   0.3061  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7047   0.6239   0.6618  
+sum          14.5869  10.3046  11.5173  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.7304 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 6 	 loss 36.532325829190086
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1392.0000      221.0       1613.0       308.0   1700.0   
+Arg1         3108.0000      715.0       3823.0       925.0   4033.0   
+Arg2         1061.0000      360.0       1421.0       556.0   1617.0   
+Arg3           33.0000       18.0         51.0        70.0    103.0   
+Arg4           10.0000        7.0         17.0        33.0     43.0   
+Arg5            6.0000        2.0          8.0        11.0     17.0   
+ArgA            2.0000        2.0          4.0         2.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      207.0000      117.0        324.0       218.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       32.0000       34.0         66.0        38.0     70.0   
+ArgM_CMP        4.0000        6.0         10.0        18.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        4.0000        3.0          7.0         4.0      8.0   
+ArgM_DIR        7.0000        1.0          8.0        21.0     28.0   
+ArgM_EXT       16.0000       19.0         35.0        31.0     47.0   
+ArgM_GOL        0.0000        1.0          1.0         4.0      4.0   
+ArgM_LOC       84.0000       42.0        126.0        79.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       48.0000       35.0         83.0        68.0    116.0   
+ArgM_MNS        7.0000       22.0         29.0        23.0     30.0   
+ArgM_NEG       71.0000       15.0         86.0         8.0     79.0   
+ArgM_PRP        9.0000        2.0         11.0        20.0     29.0   
+ArgM_PRX       39.0000       32.0         71.0        49.0     88.0   
+ArgM_REC       40.0000        1.0         41.0        24.0     64.0   
+ArgM_SCP       17.0000       26.0         43.0        29.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      148.0000       71.0        219.0        70.0    218.0   
+sum          6346.0000     1752.0       8098.0      2623.0   8969.0   
+precision       0.7837        NaN          NaN         NaN      NaN   
+recall          0.7075        NaN          NaN         NaN      NaN   
+f1              0.7437        NaN          NaN         NaN      NaN   
+f1_macro        0.7687        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8630   0.8188   0.8403  
+Arg1          0.8130   0.7706   0.7912  
+Arg2          0.7467   0.6562   0.6985  
+Arg3          0.6471   0.3204   0.4286  
+Arg4          0.5882   0.2326   0.3333  
+Arg5          0.7500   0.3529   0.4800  
+ArgA          0.5000   0.5000   0.5000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6389   0.4871   0.5527  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.4848   0.4571   0.4706  
+ArgM_CMP      0.4000   0.1818   0.2500  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.5714   0.5000   0.5333  
+ArgM_DIR      0.8750   0.2500   0.3889  
+ArgM_EXT      0.4571   0.3404   0.3902  
+ArgM_GOL      0.0000   0.0000      NaN  
+ArgM_LOC      0.6667   0.5153   0.5813  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5783   0.4138   0.4824  
+ArgM_MNS      0.2414   0.2333   0.2373  
+ArgM_NEG      0.8256   0.8987   0.8606  
+ArgM_PRP      0.8182   0.3103   0.4500  
+ArgM_PRX      0.5493   0.4432   0.4906  
+ArgM_REC      0.9756   0.6250   0.7619  
+ArgM_SCP      0.3953   0.3696   0.3820  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6758   0.6789   0.6773  
+sum          15.0614  10.5561  11.9145  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.7437 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 7 	 loss 30.256453176800278
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1412.0000      218.0       1630.0       288.0   1700.0   
+Arg1         3201.0000      668.0       3869.0       832.0   4033.0   
+Arg2         1095.0000      400.0       1495.0       522.0   1617.0   
+Arg3           36.0000       25.0         61.0        67.0    103.0   
+Arg4           16.0000       12.0         28.0        27.0     43.0   
+Arg5            6.0000        3.0          9.0        11.0     17.0   
+ArgA            1.0000        0.0          1.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      177.0000       91.0        268.0       248.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       27.0000       26.0         53.0        43.0     70.0   
+ArgM_CMP        6.0000       12.0         18.0        16.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        3.0000        4.0          7.0         5.0      8.0   
+ArgM_DIR        6.0000        1.0          7.0        22.0     28.0   
+ArgM_EXT       14.0000       26.0         40.0        33.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       91.0000       33.0        124.0        72.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       63.0000       40.0        103.0        53.0    116.0   
+ArgM_MNS       12.0000       14.0         26.0        18.0     30.0   
+ArgM_NEG       73.0000       27.0        100.0         6.0     79.0   
+ArgM_PRP       16.0000       12.0         28.0        13.0     29.0   
+ArgM_PRX       34.0000       28.0         62.0        54.0     88.0   
+ArgM_REC       43.0000        4.0         47.0        21.0     64.0   
+ArgM_SCP       17.0000       38.0         55.0        29.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      161.0000      119.0        280.0        57.0    218.0   
+sum          6511.0000     1801.0       8312.0      2458.0   8969.0   
+precision       0.7833        NaN          NaN         NaN      NaN   
+recall          0.7259        NaN          NaN         NaN      NaN   
+f1              0.7535        NaN          NaN         NaN      NaN   
+f1_macro        0.7734        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8663   0.8306   0.8480  
+Arg1          0.8273   0.7937   0.8102  
+Arg2          0.7324   0.6772   0.7037  
+Arg3          0.5902   0.3495   0.4390  
+Arg4          0.5714   0.3721   0.4507  
+Arg5          0.6667   0.3529   0.4615  
+ArgA          1.0000   0.2500   0.4000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6604   0.4165   0.5108  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5094   0.3857   0.4390  
+ArgM_CMP      0.3333   0.2727   0.3000  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.4286   0.3750   0.4000  
+ArgM_DIR      0.8571   0.2143   0.3429  
+ArgM_EXT      0.3500   0.2979   0.3218  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7339   0.5583   0.6341  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6117   0.5431   0.5753  
+ArgM_MNS      0.4615   0.4000   0.4286  
+ArgM_NEG      0.7300   0.9241   0.8156  
+ArgM_PRP      0.5714   0.5517   0.5614  
+ArgM_PRX      0.5484   0.3864   0.4533  
+ArgM_REC      0.9149   0.6719   0.7748  
+ArgM_SCP      0.3091   0.3696   0.3366  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.5750   0.7385   0.6466  
+sum          14.8491  10.9316  11.9875  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.7535 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 8 	 loss 26.35226094121026
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1422.0000      232.0       1654.0       278.0   1700.0   
+Arg1         3212.0000      653.0       3865.0       821.0   4033.0   
+Arg2         1106.0000      340.0       1446.0       511.0   1617.0   
+Arg3           34.0000       20.0         54.0        69.0    103.0   
+Arg4           13.0000        8.0         21.0        30.0     43.0   
+Arg5            6.0000        2.0          8.0        11.0     17.0   
+ArgA            3.0000        1.0          4.0         1.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      194.0000      108.0        302.0       231.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       27.0000       17.0         44.0        43.0     70.0   
+ArgM_CMP        5.0000        8.0         13.0        17.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        3.0000        4.0          7.0         5.0      8.0   
+ArgM_DIR        8.0000        6.0         14.0        20.0     28.0   
+ArgM_EXT       18.0000       30.0         48.0        29.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       80.0000       34.0        114.0        83.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       57.0000       50.0        107.0        59.0    116.0   
+ArgM_MNS        8.0000        8.0         16.0        22.0     30.0   
+ArgM_NEG       73.0000       15.0         88.0         6.0     79.0   
+ArgM_PRP       15.0000        6.0         21.0        14.0     29.0   
+ArgM_PRX       40.0000       34.0         74.0        48.0     88.0   
+ArgM_REC       44.0000        5.0         49.0        20.0     64.0   
+ArgM_SCP       12.0000       35.0         47.0        34.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      147.0000       66.0        213.0        71.0    218.0   
+sum          6528.0000     1682.0       8210.0      2441.0   8969.0   
+precision       0.7951        NaN          NaN         NaN      NaN   
+recall          0.7278        NaN          NaN         NaN      NaN   
+f1              0.7600        NaN          NaN         NaN      NaN   
+f1_macro        0.7976        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8597   0.8365   0.8479  
+Arg1          0.8310   0.7964   0.8134  
+Arg2          0.7649   0.6840   0.7222  
+Arg3          0.6296   0.3301   0.4331  
+Arg4          0.6190   0.3023   0.4062  
+Arg5          0.7500   0.3529   0.4800  
+ArgA          0.7500   0.7500   0.7500  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6424   0.4565   0.5337  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6136   0.3857   0.4737  
+ArgM_CMP      0.3846   0.2273   0.2857  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.4286   0.3750   0.4000  
+ArgM_DIR      0.5714   0.2857   0.3810  
+ArgM_EXT      0.3750   0.3830   0.3789  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7018   0.4908   0.5776  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5327   0.4914   0.5112  
+ArgM_MNS      0.5000   0.2667   0.3478  
+ArgM_NEG      0.8295   0.9241   0.8743  
+ArgM_PRP      0.7143   0.5172   0.6000  
+ArgM_PRX      0.5405   0.4545   0.4938  
+ArgM_REC      0.8980   0.6875   0.7788  
+ArgM_SCP      0.2553   0.2609   0.2581  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6901   0.6743   0.6821  
+sum          14.8822  11.1328  12.3629  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.76 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 9 	 loss 26.221689829460047
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1388.0000      150.0       1538.0       312.0   1700.0   
+Arg1         3202.0000      648.0       3850.0       831.0   4033.0   
+Arg2         1097.0000      339.0       1436.0       520.0   1617.0   
+Arg3           35.0000       24.0         59.0        68.0    103.0   
+Arg4            3.0000        3.0          6.0        40.0     43.0   
+Arg5           10.0000        1.0         11.0         7.0     17.0   
+ArgA            2.0000        1.0          3.0         2.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      175.0000       77.0        252.0       250.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       27.0000       21.0         48.0        43.0     70.0   
+ArgM_CMP        6.0000       10.0         16.0        16.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        3.0000        3.0          6.0         5.0      8.0   
+ArgM_DIR        9.0000        3.0         12.0        19.0     28.0   
+ArgM_EXT       20.0000       39.0         59.0        27.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       69.0000       27.0         96.0        94.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       58.0000       44.0        102.0        58.0    116.0   
+ArgM_MNS        5.0000       13.0         18.0        25.0     30.0   
+ArgM_NEG       75.0000       44.0        119.0         4.0     79.0   
+ArgM_PRP       13.0000        7.0         20.0        16.0     29.0   
+ArgM_PRX       46.0000       48.0         94.0        42.0     88.0   
+ArgM_REC       47.0000        6.0         53.0        17.0     64.0   
+ArgM_SCP       11.0000       14.0         25.0        35.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      123.0000       51.0        174.0        95.0    218.0   
+sum          6425.0000     1573.0       7998.0      2544.0   8969.0   
+precision       0.8033        NaN          NaN         NaN      NaN   
+recall          0.7164        NaN          NaN         NaN      NaN   
+f1              0.7574        NaN          NaN         NaN      NaN   
+f1_macro        0.7688        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.9025   0.8165   0.8573  
+Arg1          0.8317   0.7939   0.8124  
+Arg2          0.7639   0.6784   0.7186  
+Arg3          0.5932   0.3398   0.4321  
+Arg4          0.5000   0.0698   0.1224  
+Arg5          0.9091   0.5882   0.7143  
+ArgA          0.6667   0.5000   0.5714  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6944   0.4118   0.5170  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5625   0.3857   0.4576  
+ArgM_CMP      0.3750   0.2727   0.3158  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.5000   0.3750   0.4286  
+ArgM_DIR      0.7500   0.3214   0.4500  
+ArgM_EXT      0.3390   0.4255   0.3774  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7188   0.4233   0.5328  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5686   0.5000   0.5321  
+ArgM_MNS      0.2778   0.1667   0.2083  
+ArgM_NEG      0.6303   0.9494   0.7576  
+ArgM_PRP      0.6500   0.4483   0.5306  
+ArgM_PRX      0.4894   0.5227   0.5055  
+ArgM_REC      0.8868   0.7344   0.8034  
+ArgM_SCP      0.4400   0.2391   0.3099  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7069   0.5642   0.6276  
+sum          14.7565  10.7269  11.9160  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 10 	 loss 23.508270761983113
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1371.0000      154.0       1525.0       329.0   1700.0   
+Arg1         3251.0000      695.0       3946.0       782.0   4033.0   
+Arg2         1105.0000      311.0       1416.0       512.0   1617.0   
+Arg3           41.0000       53.0         94.0        62.0    103.0   
+Arg4           10.0000        8.0         18.0        33.0     43.0   
+Arg5            6.0000        2.0          8.0        11.0     17.0   
+ArgA            1.0000        1.0          2.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      214.0000       98.0        312.0       211.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       28.0000       18.0         46.0        42.0     70.0   
+ArgM_CMP        6.0000       13.0         19.0        16.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        4.0000        3.0          7.0         4.0      8.0   
+ArgM_DIR       10.0000        5.0         15.0        18.0     28.0   
+ArgM_EXT        9.0000       14.0         23.0        38.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       64.0000       14.0         78.0        99.0    163.0   
+ArgM_MDF        0.0000        1.0          1.0         6.0      6.0   
+ArgM_MNR       65.0000       42.0        107.0        51.0    116.0   
+ArgM_MNS       10.0000       22.0         32.0        20.0     30.0   
+ArgM_NEG       71.0000       26.0         97.0         8.0     79.0   
+ArgM_PRP       20.0000       16.0         36.0         9.0     29.0   
+ArgM_PRX       33.0000       32.0         65.0        55.0     88.0   
+ArgM_REC       44.0000        5.0         49.0        20.0     64.0   
+ArgM_SCP       11.0000       23.0         34.0        35.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      153.0000       74.0        227.0        65.0    218.0   
+sum          6528.0000     1630.0       8158.0      2441.0   8969.0   
+precision       0.8002        NaN          NaN         NaN      NaN   
+recall          0.7278        NaN          NaN         NaN      NaN   
+f1              0.7623        NaN          NaN         NaN      NaN   
+f1_macro        0.7695        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8990   0.8065   0.8502  
+Arg1          0.8239   0.8061   0.8149  
+Arg2          0.7804   0.6834   0.7287  
+Arg3          0.4362   0.3981   0.4162  
+Arg4          0.5556   0.2326   0.3279  
+Arg5          0.7500   0.3529   0.4800  
+ArgA          0.5000   0.2500   0.3333  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6859   0.5035   0.5807  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6087   0.4000   0.4828  
+ArgM_CMP      0.3158   0.2727   0.2927  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.5714   0.5000   0.5333  
+ArgM_DIR      0.6667   0.3571   0.4651  
+ArgM_EXT      0.3913   0.1915   0.2571  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.8205   0.3926   0.5311  
+ArgM_MDF      0.0000   0.0000      NaN  
+ArgM_MNR      0.6075   0.5603   0.5830  
+ArgM_MNS      0.3125   0.3333   0.3226  
+ArgM_NEG      0.7320   0.8987   0.8068  
+ArgM_PRP      0.5556   0.6897   0.6154  
+ArgM_PRX      0.5077   0.3750   0.4314  
+ArgM_REC      0.8980   0.6875   0.7788  
+ArgM_SCP      0.3235   0.2391   0.2750  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6740   0.7018   0.6876  
+sum          14.4160  10.8326  11.9280  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.7623 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 11 	 loss 22.49178141359789
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1424.0000      184.0       1608.0       276.0   1700.0   
+Arg1         3237.0000      760.0       3997.0       796.0   4033.0   
+Arg2         1099.0000      334.0       1433.0       518.0   1617.0   
+Arg3           33.0000       21.0         54.0        70.0    103.0   
+Arg4           10.0000        5.0         15.0        33.0     43.0   
+Arg5            6.0000        2.0          8.0        11.0     17.0   
+ArgA            1.0000        1.0          2.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      194.0000       95.0        289.0       231.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       24.0000       16.0         40.0        46.0     70.0   
+ArgM_CMP        5.0000       10.0         15.0        17.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        4.0000        2.0          6.0         4.0      8.0   
+ArgM_DIR        6.0000        3.0          9.0        22.0     28.0   
+ArgM_EXT        6.0000       16.0         22.0        41.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       93.0000       46.0        139.0        70.0    163.0   
+ArgM_MDF        1.0000        2.0          3.0         5.0      6.0   
+ArgM_MNR       51.0000       34.0         85.0        65.0    116.0   
+ArgM_MNS        6.0000       10.0         16.0        24.0     30.0   
+ArgM_NEG       72.0000       26.0         98.0         7.0     79.0   
+ArgM_PRP       13.0000        6.0         19.0        16.0     29.0   
+ArgM_PRX       37.0000       39.0         76.0        51.0     88.0   
+ArgM_REC       49.0000        3.0         52.0        15.0     64.0   
+ArgM_SCP       12.0000       36.0         48.0        34.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      125.0000       52.0        177.0        93.0    218.0   
+sum          6509.0000     1703.0       8212.0      2460.0   8969.0   
+precision       0.7926        NaN          NaN         NaN      NaN   
+recall          0.7257        NaN          NaN         NaN      NaN   
+f1              0.7577        NaN          NaN         NaN      NaN   
+f1_macro        0.7591        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8856   0.8376   0.8609  
+Arg1          0.8099   0.8026   0.8062  
+Arg2          0.7669   0.6797   0.7207  
+Arg3          0.6111   0.3204   0.4204  
+Arg4          0.6667   0.2326   0.3448  
+Arg5          0.7500   0.3529   0.4800  
+ArgA          0.5000   0.2500   0.3333  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6713   0.4565   0.5434  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6000   0.3429   0.4364  
+ArgM_CMP      0.3333   0.2273   0.2703  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.6667   0.5000   0.5714  
+ArgM_DIR      0.6667   0.2143   0.3243  
+ArgM_EXT      0.2727   0.1277   0.1739  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.6691   0.5706   0.6159  
+ArgM_MDF      0.3333   0.1667   0.2222  
+ArgM_MNR      0.6000   0.4397   0.5075  
+ArgM_MNS      0.3750   0.2000   0.2609  
+ArgM_NEG      0.7347   0.9114   0.8136  
+ArgM_PRP      0.6842   0.4483   0.5417  
+ArgM_PRX      0.4868   0.4205   0.4512  
+ArgM_REC      0.9423   0.7656   0.8448  
+ArgM_SCP      0.2500   0.2609   0.2553  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7062   0.5734   0.6329  
+sum          14.9825  10.3012  11.7654  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 12 	 loss 21.979093834356718
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1377.0000      146.0       1523.0       323.0   1700.0   
+Arg1         3234.0000      650.0       3884.0       799.0   4033.0   
+Arg2         1094.0000      339.0       1433.0       523.0   1617.0   
+Arg3           42.0000       18.0         60.0        61.0    103.0   
+Arg4           16.0000        6.0         22.0        27.0     43.0   
+Arg5            7.0000        5.0         12.0        10.0     17.0   
+ArgA            1.0000        0.0          1.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      197.0000       87.0        284.0       228.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       32.0000       17.0         49.0        38.0     70.0   
+ArgM_CMP        5.0000       11.0         16.0        17.0     22.0   
+ArgM_CND        0.0000        1.0          1.0         5.0      5.0   
+ArgM_CRT        3.0000        2.0          5.0         5.0      8.0   
+ArgM_DIR        9.0000        6.0         15.0        19.0     28.0   
+ArgM_EXT       12.0000       22.0         34.0        35.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       84.0000       47.0        131.0        79.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       47.0000       29.0         76.0        69.0    116.0   
+ArgM_MNS        7.0000        7.0         14.0        23.0     30.0   
+ArgM_NEG       70.0000       18.0         88.0         9.0     79.0   
+ArgM_PRP       16.0000        8.0         24.0        13.0     29.0   
+ArgM_PRX       36.0000       30.0         66.0        52.0     88.0   
+ArgM_REC       46.0000        2.0         48.0        18.0     64.0   
+ArgM_SCP       17.0000       35.0         52.0        29.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      124.0000       60.0        184.0        94.0    218.0   
+sum          6476.0000     1546.0       8022.0      2493.0   8969.0   
+precision       0.8073        NaN          NaN         NaN      NaN   
+recall          0.7220        NaN          NaN         NaN      NaN   
+f1              0.7623        NaN          NaN         NaN      NaN   
+f1_macro        0.7669        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.9041   0.8100   0.8545  
+Arg1          0.8326   0.8019   0.8170  
+Arg2          0.7634   0.6766   0.7174  
+Arg3          0.7000   0.4078   0.5153  
+Arg4          0.7273   0.3721   0.4923  
+Arg5          0.5833   0.4118   0.4828  
+ArgA          1.0000   0.2500   0.4000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6937   0.4635   0.5557  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6531   0.4571   0.5378  
+ArgM_CMP      0.3125   0.2273   0.2632  
+ArgM_CND      0.0000   0.0000      NaN  
+ArgM_CRT      0.6000   0.3750   0.4615  
+ArgM_DIR      0.6000   0.3214   0.4186  
+ArgM_EXT      0.3529   0.2553   0.2963  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.6412   0.5153   0.5714  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6184   0.4052   0.4896  
+ArgM_MNS      0.5000   0.2333   0.3182  
+ArgM_NEG      0.7955   0.8861   0.8383  
+ArgM_PRP      0.6667   0.5517   0.6038  
+ArgM_PRX      0.5455   0.4091   0.4675  
+ArgM_REC      0.9583   0.7188   0.8214  
+ArgM_SCP      0.3269   0.3696   0.3469  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6739   0.5688   0.6169  
+sum          14.4494  10.4876  11.8865  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 13 	 loss 19.242079391082825
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1405.0000      206.0       1611.0       295.0   1700.0   
+Arg1         3263.0000      758.0       4021.0       770.0   4033.0   
+Arg2         1139.0000      372.0       1511.0       478.0   1617.0   
+Arg3           33.0000       20.0         53.0        70.0    103.0   
+Arg4           14.0000        8.0         22.0        29.0     43.0   
+Arg5            4.0000        1.0          5.0        13.0     17.0   
+ArgA            1.0000        3.0          4.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      211.0000      104.0        315.0       214.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       28.0000       18.0         46.0        42.0     70.0   
+ArgM_CMP        4.0000        5.0          9.0        18.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        2.0000        1.0          3.0         6.0      8.0   
+ArgM_DIR        7.0000        3.0         10.0        21.0     28.0   
+ArgM_EXT        9.0000       20.0         29.0        38.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       72.0000       28.0        100.0        91.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       58.0000       42.0        100.0        58.0    116.0   
+ArgM_MNS       14.0000       19.0         33.0        16.0     30.0   
+ArgM_NEG       70.0000       22.0         92.0         9.0     79.0   
+ArgM_PRP       13.0000        7.0         20.0        16.0     29.0   
+ArgM_PRX       37.0000       27.0         64.0        51.0     88.0   
+ArgM_REC       49.0000        2.0         51.0        15.0     64.0   
+ArgM_SCP       12.0000       25.0         37.0        34.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      156.0000       67.0        223.0        62.0    218.0   
+sum          6601.0000     1758.0       8359.0      2368.0   8969.0   
+precision       0.7897        NaN          NaN         NaN      NaN   
+recall          0.7360        NaN          NaN         NaN      NaN   
+f1              0.7619        NaN          NaN         NaN      NaN   
+f1_macro        0.7322        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8721   0.8265   0.8487  
+Arg1          0.8115   0.8091   0.8103  
+Arg2          0.7538   0.7044   0.7283  
+Arg3          0.6226   0.3204   0.4231  
+Arg4          0.6364   0.3256   0.4308  
+Arg5          0.8000   0.2353   0.3636  
+ArgA          0.2500   0.2500   0.2500  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6698   0.4965   0.5703  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6087   0.4000   0.4828  
+ArgM_CMP      0.4444   0.1818   0.2581  
+ArgM_CND         NaN   0.0000      NaN  
+ArgM_CRT      0.6667   0.2500   0.3636  
+ArgM_DIR      0.7000   0.2500   0.3684  
+ArgM_EXT      0.3103   0.1915   0.2368  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7200   0.4417   0.5475  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5800   0.5000   0.5370  
+ArgM_MNS      0.4242   0.4667   0.4444  
+ArgM_NEG      0.7609   0.8861   0.8187  
+ArgM_PRP      0.6500   0.4483   0.5306  
+ArgM_PRX      0.5781   0.4205   0.4868  
+ArgM_REC      0.9608   0.7656   0.8522  
+ArgM_SCP      0.3243   0.2609   0.2892  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6996   0.7156   0.7075  
+sum          13.8443  10.1463  11.3487  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 14 	 loss 19.364518048190803
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1387.0000      164.0       1551.0       313.0   1700.0   
+Arg1         3282.0000      753.0       4035.0       751.0   4033.0   
+Arg2         1111.0000      339.0       1450.0       506.0   1617.0   
+Arg3           37.0000       30.0         67.0        66.0    103.0   
+Arg4           14.0000       11.0         25.0        29.0     43.0   
+Arg5            9.0000        0.0          9.0         8.0     17.0   
+ArgA            1.0000        0.0          1.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      210.0000      108.0        318.0       215.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       25.0000       21.0         46.0        45.0     70.0   
+ArgM_CMP        4.0000        5.0          9.0        18.0     22.0   
+ArgM_CND        1.0000        1.0          2.0         4.0      5.0   
+ArgM_CRT        2.0000        4.0          6.0         6.0      8.0   
+ArgM_DIR        9.0000        8.0         17.0        19.0     28.0   
+ArgM_EXT       12.0000       32.0         44.0        35.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       76.0000       32.0        108.0        87.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       45.0000       29.0         74.0        71.0    116.0   
+ArgM_MNS       13.0000       17.0         30.0        17.0     30.0   
+ArgM_NEG       70.0000       16.0         86.0         9.0     79.0   
+ArgM_PRP       12.0000        5.0         17.0        17.0     29.0   
+ArgM_PRX       40.0000       50.0         90.0        48.0     88.0   
+ArgM_REC       47.0000        7.0         54.0        17.0     64.0   
+ArgM_SCP       11.0000       22.0         33.0        35.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      150.0000       82.0        232.0        68.0    218.0   
+sum          6568.0000     1736.0       8304.0      2401.0   8969.0   
+precision       0.7909        NaN          NaN         NaN      NaN   
+recall          0.7323        NaN          NaN         NaN      NaN   
+f1              0.7605        NaN          NaN         NaN      NaN   
+f1_macro        0.7645        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8943   0.8159   0.8533  
+Arg1          0.8134   0.8138   0.8136  
+Arg2          0.7662   0.6871   0.7245  
+Arg3          0.5522   0.3592   0.4353  
+Arg4          0.5600   0.3256   0.4118  
+Arg5          1.0000   0.5294   0.6923  
+ArgA          1.0000   0.2500   0.4000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6604   0.4941   0.5653  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5435   0.3571   0.4310  
+ArgM_CMP      0.4444   0.1818   0.2581  
+ArgM_CND      0.5000   0.2000   0.2857  
+ArgM_CRT      0.3333   0.2500   0.2857  
+ArgM_DIR      0.5294   0.3214   0.4000  
+ArgM_EXT      0.2727   0.2553   0.2637  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7037   0.4663   0.5609  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6081   0.3879   0.4737  
+ArgM_MNS      0.4333   0.4333   0.4333  
+ArgM_NEG      0.8140   0.8861   0.8485  
+ArgM_PRP      0.7059   0.4138   0.5217  
+ArgM_PRX      0.4444   0.4545   0.4494  
+ArgM_REC      0.8704   0.7344   0.7966  
+ArgM_SCP      0.3333   0.2391   0.2785  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6466   0.6881   0.6667  
+sum          14.4295  10.5443  11.8496  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 15 	 loss 19.27279589094178
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1377.0000      163.0       1540.0       323.0   1700.0   
+Arg1         3292.0000      698.0       3990.0       741.0   4033.0   
+Arg2         1105.0000      344.0       1449.0       512.0   1617.0   
+Arg3           40.0000       29.0         69.0        63.0    103.0   
+Arg4           13.0000        9.0         22.0        30.0     43.0   
+Arg5            7.0000        2.0          9.0        10.0     17.0   
+ArgA            1.0000        0.0          1.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      193.0000       81.0        274.0       232.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       28.0000       23.0         51.0        42.0     70.0   
+ArgM_CMP        6.0000       10.0         16.0        16.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        5.0000        2.0          7.0         3.0      8.0   
+ArgM_DIR        6.0000        2.0          8.0        22.0     28.0   
+ArgM_EXT       15.0000       30.0         45.0        32.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       65.0000       24.0         89.0        98.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       57.0000       29.0         86.0        59.0    116.0   
+ArgM_MNS       10.0000       11.0         21.0        20.0     30.0   
+ArgM_NEG       69.0000       33.0        102.0        10.0     79.0   
+ArgM_PRP       13.0000        4.0         17.0        16.0     29.0   
+ArgM_PRX       34.0000       37.0         71.0        54.0     88.0   
+ArgM_REC       46.0000        2.0         48.0        18.0     64.0   
+ArgM_SCP       12.0000       17.0         29.0        34.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      147.0000       66.0        213.0        71.0    218.0   
+sum          6542.0000     1616.0       8158.0      2427.0   8969.0   
+precision       0.8019        NaN          NaN         NaN      NaN   
+recall          0.7294        NaN          NaN         NaN      NaN   
+f1              0.7639        NaN          NaN         NaN      NaN   
+f1_macro        0.7895        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8942   0.8100   0.8500  
+Arg1          0.8251   0.8163   0.8206  
+Arg2          0.7626   0.6834   0.7208  
+Arg3          0.5797   0.3883   0.4651  
+Arg4          0.5909   0.3023   0.4000  
+Arg5          0.7778   0.4118   0.5385  
+ArgA          1.0000   0.2500   0.4000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.7044   0.4541   0.5522  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5490   0.4000   0.4628  
+ArgM_CMP      0.3750   0.2727   0.3158  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.7143   0.6250   0.6667  
+ArgM_DIR      0.7500   0.2143   0.3333  
+ArgM_EXT      0.3333   0.3191   0.3261  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7303   0.3988   0.5159  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6628   0.4914   0.5644  
+ArgM_MNS      0.4762   0.3333   0.3922  
+ArgM_NEG      0.6765   0.8734   0.7624  
+ArgM_PRP      0.7647   0.4483   0.5652  
+ArgM_PRX      0.4789   0.3864   0.4277  
+ArgM_REC      0.9583   0.7188   0.8214  
+ArgM_SCP      0.4138   0.2609   0.3200  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6901   0.6743   0.6821  
+sum          15.7079  10.7328  12.2365  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.7639 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 16 	 loss 18.826004423309314
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1471.0000      256.0       1727.0       229.0   1700.0   
+Arg1         3238.0000      642.0       3880.0       795.0   4033.0   
+Arg2         1105.0000      314.0       1419.0       512.0   1617.0   
+Arg3           41.0000       31.0         72.0        62.0    103.0   
+Arg4           13.0000        7.0         20.0        30.0     43.0   
+Arg5            7.0000        2.0          9.0        10.0     17.0   
+ArgA            1.0000        0.0          1.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      235.0000      135.0        370.0       190.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       22.0000       12.0         34.0        48.0     70.0   
+ArgM_CMP        5.0000        9.0         14.0        17.0     22.0   
+ArgM_CND        0.0000        0.0          0.0         5.0      5.0   
+ArgM_CRT        4.0000        4.0          8.0         4.0      8.0   
+ArgM_DIR       10.0000        2.0         12.0        18.0     28.0   
+ArgM_EXT       15.0000       25.0         40.0        32.0     47.0   
+ArgM_GOL        0.0000        1.0          1.0         4.0      4.0   
+ArgM_LOC       94.0000       34.0        128.0        69.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       52.0000       30.0         82.0        64.0    116.0   
+ArgM_MNS        8.0000        6.0         14.0        22.0     30.0   
+ArgM_NEG       72.0000       48.0        120.0         7.0     79.0   
+ArgM_PRP       15.0000        8.0         23.0        14.0     29.0   
+ArgM_PRX       38.0000       33.0         71.0        50.0     88.0   
+ArgM_REC       49.0000        5.0         54.0        15.0     64.0   
+ArgM_SCP       11.0000       22.0         33.0        35.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      135.0000       59.0        194.0        83.0    218.0   
+sum          6641.0000     1685.0       8326.0      2328.0   8969.0   
+precision       0.7976        NaN          NaN         NaN      NaN   
+recall          0.7404        NaN          NaN         NaN      NaN   
+f1              0.7680        NaN          NaN         NaN      NaN   
+f1_macro        0.7703        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8518   0.8653   0.8585  
+Arg1          0.8345   0.8029   0.8184  
+Arg2          0.7787   0.6834   0.7279  
+Arg3          0.5694   0.3981   0.4686  
+Arg4          0.6500   0.3023   0.4127  
+Arg5          0.7778   0.4118   0.5385  
+ArgA          1.0000   0.2500   0.4000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6351   0.5529   0.5912  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6471   0.3143   0.4231  
+ArgM_CMP      0.3571   0.2273   0.2778  
+ArgM_CND         NaN   0.0000      NaN  
+ArgM_CRT      0.5000   0.5000   0.5000  
+ArgM_DIR      0.8333   0.3571   0.5000  
+ArgM_EXT      0.3750   0.3191   0.3448  
+ArgM_GOL      0.0000   0.0000      NaN  
+ArgM_LOC      0.7344   0.5767   0.6460  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6341   0.4483   0.5253  
+ArgM_MNS      0.5714   0.2667   0.3636  
+ArgM_NEG      0.6000   0.9114   0.7236  
+ArgM_PRP      0.6522   0.5172   0.5769  
+ArgM_PRX      0.5352   0.4318   0.4780  
+ArgM_REC      0.9074   0.7656   0.8305  
+ArgM_SCP      0.3333   0.2391   0.2785  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6959   0.6193   0.6553  
+sum          14.4739  10.7606  11.9392  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Valid f1 =  0.768 
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 17 	 loss 16.72540436206782
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1410.0000      181.0       1591.0       290.0   1700.0   
+Arg1         3296.0000      704.0       4000.0       737.0   4033.0   
+Arg2         1072.0000      308.0       1380.0       545.0   1617.0   
+Arg3           35.0000       19.0         54.0        68.0    103.0   
+Arg4           12.0000        8.0         20.0        31.0     43.0   
+Arg5            9.0000        2.0         11.0         8.0     17.0   
+ArgA            1.0000        1.0          2.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      237.0000      167.0        404.0       188.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       34.0000       26.0         60.0        36.0     70.0   
+ArgM_CMP        5.0000       13.0         18.0        17.0     22.0   
+ArgM_CND        1.0000        1.0          2.0         4.0      5.0   
+ArgM_CRT        4.0000        2.0          6.0         4.0      8.0   
+ArgM_DIR       11.0000        4.0         15.0        17.0     28.0   
+ArgM_EXT        5.0000       12.0         17.0        42.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       70.0000       23.0         93.0        93.0    163.0   
+ArgM_MDF        0.0000        1.0          1.0         6.0      6.0   
+ArgM_MNR       53.0000       29.0         82.0        63.0    116.0   
+ArgM_MNS        6.0000        7.0         13.0        24.0     30.0   
+ArgM_NEG       71.0000       23.0         94.0         8.0     79.0   
+ArgM_PRP       20.0000        9.0         29.0         9.0     29.0   
+ArgM_PRX       39.0000       30.0         69.0        49.0     88.0   
+ArgM_REC       43.0000        3.0         46.0        21.0     64.0   
+ArgM_SCP       17.0000       26.0         43.0        29.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      128.0000       65.0        193.0        90.0    218.0   
+sum          6579.0000     1664.0       8243.0      2390.0   8969.0   
+precision       0.7981        NaN          NaN         NaN      NaN   
+recall          0.7335        NaN          NaN         NaN      NaN   
+f1              0.7645        NaN          NaN         NaN      NaN   
+f1_macro        0.7885        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8862   0.8294   0.8569  
+Arg1          0.8240   0.8173   0.8206  
+Arg2          0.7768   0.6630   0.7154  
+Arg3          0.6481   0.3398   0.4459  
+Arg4          0.6000   0.2791   0.3810  
+Arg5          0.8182   0.5294   0.6429  
+ArgA          0.5000   0.2500   0.3333  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.5866   0.5576   0.5718  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5667   0.4857   0.5231  
+ArgM_CMP      0.2778   0.2273   0.2500  
+ArgM_CND      0.5000   0.2000   0.2857  
+ArgM_CRT      0.6667   0.5000   0.5714  
+ArgM_DIR      0.7333   0.3929   0.5116  
+ArgM_EXT      0.2941   0.1064   0.1562  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7527   0.4294   0.5469  
+ArgM_MDF      0.0000   0.0000      NaN  
+ArgM_MNR      0.6463   0.4569   0.5354  
+ArgM_MNS      0.4615   0.2000   0.2791  
+ArgM_NEG      0.7553   0.8987   0.8208  
+ArgM_PRP      0.6897   0.6897   0.6897  
+ArgM_PRX      0.5652   0.4432   0.4968  
+ArgM_REC      0.9348   0.6719   0.7818  
+ArgM_SCP      0.3953   0.3696   0.3820  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6632   0.5872   0.6229  
+sum          14.5427  10.9243  12.2210  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 18 	 loss 17.742302291872875
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1433.0000      213.0       1646.0       267.0   1700.0   
+Arg1         3320.0000      708.0       4028.0       713.0   4033.0   
+Arg2         1120.0000      347.0       1467.0       497.0   1617.0   
+Arg3           38.0000       43.0         81.0        65.0    103.0   
+Arg4           13.0000       12.0         25.0        30.0     43.0   
+Arg5            9.0000        2.0         11.0         8.0     17.0   
+ArgA            3.0000        2.0          5.0         1.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      207.0000       90.0        297.0       218.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       18.0000        8.0         26.0        52.0     70.0   
+ArgM_CMP        3.0000        5.0          8.0        19.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        5.0000        7.0         12.0         3.0      8.0   
+ArgM_DIR       10.0000       11.0         21.0        18.0     28.0   
+ArgM_EXT       15.0000       31.0         46.0        32.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       81.0000       40.0        121.0        82.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       51.0000       24.0         75.0        65.0    116.0   
+ArgM_MNS       11.0000       17.0         28.0        19.0     30.0   
+ArgM_NEG       73.0000       46.0        119.0         6.0     79.0   
+ArgM_PRP       17.0000       12.0         29.0        12.0     29.0   
+ArgM_PRX       39.0000       27.0         66.0        49.0     88.0   
+ArgM_REC       48.0000        9.0         57.0        16.0     64.0   
+ArgM_SCP       16.0000       29.0         45.0        30.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      137.0000       51.0        188.0        81.0    218.0   
+sum          6668.0000     1734.0       8402.0      2301.0   8969.0   
+precision       0.7936        NaN          NaN         NaN      NaN   
+recall          0.7434        NaN          NaN         NaN      NaN   
+f1              0.7677        NaN          NaN         NaN      NaN   
+f1_macro        0.7973        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8706   0.8429   0.8565  
+Arg1          0.8242   0.8232   0.8237  
+Arg2          0.7635   0.6926   0.7263  
+Arg3          0.4691   0.3689   0.4130  
+Arg4          0.5200   0.3023   0.3824  
+Arg5          0.8182   0.5294   0.6429  
+ArgA          0.6000   0.7500   0.6667  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6970   0.4871   0.5734  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6923   0.2571   0.3750  
+ArgM_CMP      0.3750   0.1364   0.2000  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.4167   0.6250   0.5000  
+ArgM_DIR      0.4762   0.3571   0.4082  
+ArgM_EXT      0.3261   0.3191   0.3226  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.6694   0.4969   0.5704  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6800   0.4397   0.5340  
+ArgM_MNS      0.3929   0.3667   0.3793  
+ArgM_NEG      0.6134   0.9241   0.7374  
+ArgM_PRP      0.5862   0.5862   0.5862  
+ArgM_PRX      0.5909   0.4432   0.5065  
+ArgM_REC      0.8421   0.7500   0.7934  
+ArgM_SCP      0.3556   0.3478   0.3516  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7287   0.6284   0.6749  
+sum          14.3081  11.6743  12.3578  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 19 	 loss 15.83633072420298
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1442.0000      249.0       1691.0       258.0   1700.0   
+Arg1         3260.0000      688.0       3948.0       773.0   4033.0   
+Arg2         1113.0000      336.0       1449.0       504.0   1617.0   
+Arg3           41.0000       35.0         76.0        62.0    103.0   
+Arg4           12.0000       12.0         24.0        31.0     43.0   
+Arg5           11.0000        6.0         17.0         6.0     17.0   
+ArgA            1.0000        1.0          2.0         3.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      215.0000      103.0        318.0       210.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       31.0000       20.0         51.0        39.0     70.0   
+ArgM_CMP        6.0000       13.0         19.0        16.0     22.0   
+ArgM_CND        1.0000        1.0          2.0         4.0      5.0   
+ArgM_CRT        4.0000        3.0          7.0         4.0      8.0   
+ArgM_DIR       10.0000        5.0         15.0        18.0     28.0   
+ArgM_EXT       16.0000       29.0         45.0        31.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       80.0000       28.0        108.0        83.0    163.0   
+ArgM_MDF        0.0000        1.0          1.0         6.0      6.0   
+ArgM_MNR       51.0000       37.0         88.0        65.0    116.0   
+ArgM_MNS       10.0000       18.0         28.0        20.0     30.0   
+ArgM_NEG       65.0000       25.0         90.0        14.0     79.0   
+ArgM_PRP       17.0000       10.0         27.0        12.0     29.0   
+ArgM_PRX       41.0000       28.0         69.0        47.0     88.0   
+ArgM_REC       48.0000        4.0         52.0        16.0     64.0   
+ArgM_SCP       16.0000       22.0         38.0        30.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      140.0000       69.0        209.0        78.0    218.0   
+sum          6631.0000     1743.0       8374.0      2338.0   8969.0   
+precision       0.7919        NaN          NaN         NaN      NaN   
+recall          0.7393        NaN          NaN         NaN      NaN   
+f1              0.7647        NaN          NaN         NaN      NaN   
+f1_macro        0.8003        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8527   0.8482   0.8505  
+Arg1          0.8257   0.8083   0.8169  
+Arg2          0.7681   0.6883   0.7260  
+Arg3          0.5395   0.3981   0.4581  
+Arg4          0.5000   0.2791   0.3582  
+Arg5          0.6471   0.6471   0.6471  
+ArgA          0.5000   0.2500   0.3333  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6761   0.5059   0.5787  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6078   0.4429   0.5124  
+ArgM_CMP      0.3158   0.2727   0.2927  
+ArgM_CND      0.5000   0.2000   0.2857  
+ArgM_CRT      0.5714   0.5000   0.5333  
+ArgM_DIR      0.6667   0.3571   0.4651  
+ArgM_EXT      0.3556   0.3404   0.3478  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7407   0.4908   0.5904  
+ArgM_MDF      0.0000   0.0000      NaN  
+ArgM_MNR      0.5795   0.4397   0.5000  
+ArgM_MNS      0.3571   0.3333   0.3448  
+ArgM_NEG      0.7222   0.8228   0.7692  
+ArgM_PRP      0.6296   0.5862   0.6071  
+ArgM_PRX      0.5942   0.4659   0.5223  
+ArgM_REC      0.9231   0.7500   0.8276  
+ArgM_SCP      0.4211   0.3478   0.3810  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6699   0.6422   0.6557  
+sum          13.9640  11.4168  12.4041  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 20 	 loss 16.28230594055003
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1457.0000      253.0       1710.0       243.0   1700.0   
+Arg1         3188.0000      619.0       3807.0       845.0   4033.0   
+Arg2         1090.0000      309.0       1399.0       527.0   1617.0   
+Arg3           38.0000       33.0         71.0        65.0    103.0   
+Arg4           14.0000       15.0         29.0        29.0     43.0   
+Arg5            8.0000        2.0         10.0         9.0     17.0   
+ArgA            0.0000        0.0          0.0         4.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      224.0000      130.0        354.0       201.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       27.0000       19.0         46.0        43.0     70.0   
+ArgM_CMP        6.0000       17.0         23.0        16.0     22.0   
+ArgM_CND        1.0000        0.0          1.0         4.0      5.0   
+ArgM_CRT        2.0000        3.0          5.0         6.0      8.0   
+ArgM_DIR        8.0000       13.0         21.0        20.0     28.0   
+ArgM_EXT       12.0000       25.0         37.0        35.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       79.0000       25.0        104.0        84.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       60.0000       34.0         94.0        56.0    116.0   
+ArgM_MNS        8.0000       15.0         23.0        22.0     30.0   
+ArgM_NEG       69.0000       18.0         87.0        10.0     79.0   
+ArgM_PRP       14.0000       11.0         25.0        15.0     29.0   
+ArgM_PRX       36.0000       32.0         68.0        52.0     88.0   
+ArgM_REC       50.0000        6.0         56.0        14.0     64.0   
+ArgM_SCP       16.0000       25.0         41.0        30.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      130.0000       48.0        178.0        88.0    218.0   
+sum          6537.0000     1652.0       8189.0      2432.0   8969.0   
+precision       0.7983        NaN          NaN         NaN      NaN   
+recall          0.7288        NaN          NaN         NaN      NaN   
+f1              0.7620        NaN          NaN         NaN      NaN   
+f1_macro        0.7422        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8520   0.8571   0.8545  
+Arg1          0.8374   0.7905   0.8133  
+Arg2          0.7791   0.6741   0.7228  
+Arg3          0.5352   0.3689   0.4368  
+Arg4          0.4828   0.3256   0.3889  
+Arg5          0.8000   0.4706   0.5926  
+ArgA             NaN   0.0000      NaN  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6328   0.5271   0.5751  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5870   0.3857   0.4655  
+ArgM_CMP      0.2609   0.2727   0.2667  
+ArgM_CND      1.0000   0.2000   0.3333  
+ArgM_CRT      0.4000   0.2500   0.3077  
+ArgM_DIR      0.3810   0.2857   0.3265  
+ArgM_EXT      0.3243   0.2553   0.2857  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7596   0.4847   0.5918  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6383   0.5172   0.5714  
+ArgM_MNS      0.3478   0.2667   0.3019  
+ArgM_NEG      0.7931   0.8734   0.8313  
+ArgM_PRP      0.5600   0.4828   0.5185  
+ArgM_PRX      0.5294   0.4091   0.4615  
+ArgM_REC      0.8929   0.7812   0.8333  
+ArgM_SCP      0.3902   0.3478   0.3678  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7303   0.5963   0.6566  
+sum          13.5141  10.4225  11.5036  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+No change in valid f1
+
+Progress 0 / 43296 tensor(3)
+Progress 1600 / 43296 tensor(4)
+Progress 3200 / 43296 tensor(5)
+Progress 4800 / 43296 tensor(5)
+Progress 6400 / 43296 tensor(6)
+Progress 8000 / 43296 tensor(6)
+Progress 9600 / 43296 tensor(6)
+Progress 11200 / 43296 tensor(7)
+Progress 12800 / 43296 tensor(7)
+Progress 14400 / 43296 tensor(8)
+Progress 16000 / 43296 tensor(9)
+Progress 17600 / 43296 tensor(11)
+Progress 19200 / 43296 tensor(13)
+Progress 20800 / 43296 tensor(16)
+Progress 22400 / 43296 tensor(19)
+Progress 24000 / 43296 tensor(21)
+Progress 25600 / 43296 tensor(24)
+Progress 27200 / 43296 tensor(26)
+Progress 28800 / 43296 tensor(28)
+Progress 30400 / 43296 tensor(31)
+Progress 32000 / 43296 tensor(34)
+Progress 33600 / 43296 tensor(37)
+Progress 35200 / 43296 tensor(40)
+Progress 36800 / 43296 tensor(45)
+Progress 38400 / 43296 tensor(50)
+Progress 40000 / 43296 tensor(57)
+Progress 41600 / 43296 tensor(67)
+Progress 43200 / 43296 tensor(117)
+epoch 21 	 loss 16.25672259532962
+Validation Start
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1443.0000      240.0       1683.0       257.0   1700.0   
+Arg1         3265.0000      713.0       3978.0       768.0   4033.0   
+Arg2         1107.0000      320.0       1427.0       510.0   1617.0   
+Arg3           40.0000       22.0         62.0        63.0    103.0   
+Arg4           15.0000       12.0         27.0        28.0     43.0   
+Arg5           10.0000        2.0         12.0         7.0     17.0   
+ArgA            2.0000        2.0          4.0         2.0      4.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      250.0000      141.0        391.0       175.0    425.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         2.0      2.0   
+ArgM_CAU       28.0000       20.0         48.0        42.0     70.0   
+ArgM_CMP        6.0000       16.0         22.0        16.0     22.0   
+ArgM_CND        1.0000        3.0          4.0         4.0      5.0   
+ArgM_CRT        2.0000        3.0          5.0         6.0      8.0   
+ArgM_DIR        9.0000        5.0         14.0        19.0     28.0   
+ArgM_EXT       15.0000       27.0         42.0        32.0     47.0   
+ArgM_GOL        0.0000        0.0          0.0         4.0      4.0   
+ArgM_LOC       84.0000       31.0        115.0        79.0    163.0   
+ArgM_MDF        0.0000        0.0          0.0         6.0      6.0   
+ArgM_MNR       55.0000       35.0         90.0        61.0    116.0   
+ArgM_MNS        8.0000       12.0         20.0        22.0     30.0   
+ArgM_NEG       73.0000       36.0        109.0         6.0     79.0   
+ArgM_PRP       15.0000       10.0         25.0        14.0     29.0   
+ArgM_PRX       40.0000       32.0         72.0        48.0     88.0   
+ArgM_REC       49.0000        7.0         56.0        15.0     64.0   
+ArgM_SCP       15.0000       27.0         42.0        31.0     46.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      152.0000       74.0        226.0        66.0    218.0   
+sum          6684.0000     1790.0       8474.0      2285.0   8969.0   
+precision       0.7888        NaN          NaN         NaN      NaN   
+recall          0.7452        NaN          NaN         NaN      NaN   
+f1              0.7664        NaN          NaN         NaN      NaN   
+f1_macro        0.7927        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8574   0.8488   0.8531  
+Arg1          0.8208   0.8096   0.8151  
+Arg2          0.7758   0.6846   0.7273  
+Arg3          0.6452   0.3883   0.4848  
+Arg4          0.5556   0.3488   0.4286  
+Arg5          0.8333   0.5882   0.6897  
+ArgA          0.5000   0.5000   0.5000  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6394   0.5882   0.6127  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.5833   0.4000   0.4746  
+ArgM_CMP      0.2727   0.2727   0.2727  
+ArgM_CND      0.2500   0.2000   0.2222  
+ArgM_CRT      0.4000   0.2500   0.3077  
+ArgM_DIR      0.6429   0.3214   0.4286  
+ArgM_EXT      0.3571   0.3191   0.3371  
+ArgM_GOL         NaN   0.0000      NaN  
+ArgM_LOC      0.7304   0.5153   0.6043  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.6111   0.4741   0.5340  
+ArgM_MNS      0.4000   0.2667   0.3200  
+ArgM_NEG      0.6697   0.9241   0.7766  
+ArgM_PRP      0.6000   0.5172   0.5556  
+ArgM_PRX      0.5556   0.4545   0.5000  
+ArgM_REC      0.8750   0.7656   0.8167  
+ArgM_SCP      0.3571   0.3261   0.3409  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.6726   0.6972   0.6847  
+sum          13.6049  11.4609  12.2869  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+Some weights of the model checkpoint at cl-tohoku/bert-base-japanese-v2 were not used when initializing BertModel: ['cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+../Decode/decode_span2.py:116: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  sentences = torch.tensor(sentences, dtype=torch.long)
+srl_span2.py:277: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  sentences = torch.tensor(sentences, dtype=torch.long)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+srl_span2.py:324: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  token_num = torch.tensor(batch_token,dtype=torch.long).to(device)
+Stop. No change in valid f1
+
+
+ 1 day, 16:50:33.324944 
+
+           correct_num  wrong_num  predict_num  missed_num  support  \
+Arg             0.0000        0.0          0.0         0.0      0.0   
+Arg0         1476.0000      265.0       1741.0       212.0   1688.0   
+Arg1         3293.0000      626.0       3919.0       739.0   4032.0   
+Arg2         1126.0000      294.0       1420.0       494.0   1620.0   
+Arg3           23.0000       32.0         55.0        70.0     93.0   
+Arg4           17.0000        7.0         24.0        28.0     45.0   
+Arg5            3.0000        1.0          4.0         4.0      7.0   
+ArgA            1.0000        0.0          1.0         4.0      5.0   
+ArgM            0.0000        0.0          0.0         1.0      1.0   
+ArgM2           0.0000        0.0          0.0         0.0      0.0   
+ArgM_ADV      247.0000      159.0        406.0       183.0    430.0   
+ArgM_AND        0.0000        0.0          0.0         1.0      1.0   
+ArgM_BUT        0.0000        0.0          0.0         1.0      1.0   
+ArgM_CAU       37.0000       16.0         53.0        32.0     69.0   
+ArgM_CMP        3.0000        4.0          7.0        14.0     17.0   
+ArgM_CND        0.0000        1.0          1.0         6.0      6.0   
+ArgM_CRT        2.0000        4.0          6.0        18.0     20.0   
+ArgM_DIR       10.0000        0.0         10.0        16.0     26.0   
+ArgM_EXT        7.0000       14.0         21.0        24.0     31.0   
+ArgM_GOL        0.0000        1.0          1.0         1.0      1.0   
+ArgM_LOC       86.0000       42.0        128.0        57.0    143.0   
+ArgM_MDF        0.0000        0.0          0.0         8.0      8.0   
+ArgM_MNR       62.0000       45.0        107.0        65.0    127.0   
+ArgM_MNS       17.0000       13.0         30.0        22.0     39.0   
+ArgM_NEG       82.0000       43.0        125.0        15.0     97.0   
+ArgM_PRP        9.0000        6.0         15.0        17.0     26.0   
+ArgM_PRX       44.0000       26.0         70.0        49.0     93.0   
+ArgM_REC       33.0000        8.0         41.0        12.0     45.0   
+ArgM_SCP       10.0000       19.0         29.0        46.0     56.0   
+ArgM_SPK        0.0000        0.0          0.0         0.0      0.0   
+ArgM_TMP      146.0000       55.0        201.0        82.0    228.0   
+sum          6734.0000     1681.0       8415.0      2221.0   8955.0   
+precision       0.8002        NaN          NaN         NaN      NaN   
+recall          0.7520        NaN          NaN         NaN      NaN   
+f1              0.7754        NaN          NaN         NaN      NaN   
+f1_macro        0.7482        NaN          NaN         NaN      NaN   
+
+           precision   recall       f1  
+Arg              NaN      NaN      NaN  
+Arg0          0.8478   0.8744   0.8609  
+Arg1          0.8403   0.8167   0.8283  
+Arg2          0.7930   0.6951   0.7408  
+Arg3          0.4182   0.2473   0.3108  
+Arg4          0.7083   0.3778   0.4928  
+Arg5          0.7500   0.4286   0.5455  
+ArgA          1.0000   0.2000   0.3333  
+ArgM             NaN   0.0000      NaN  
+ArgM2            NaN      NaN      NaN  
+ArgM_ADV      0.6084   0.5744   0.5909  
+ArgM_AND         NaN   0.0000      NaN  
+ArgM_BUT         NaN   0.0000      NaN  
+ArgM_CAU      0.6981   0.5362   0.6066  
+ArgM_CMP      0.4286   0.1765   0.2500  
+ArgM_CND      0.0000   0.0000      NaN  
+ArgM_CRT      0.3333   0.1000   0.1538  
+ArgM_DIR      1.0000   0.3846   0.5556  
+ArgM_EXT      0.3333   0.2258   0.2692  
+ArgM_GOL      0.0000   0.0000      NaN  
+ArgM_LOC      0.6719   0.6014   0.6347  
+ArgM_MDF         NaN   0.0000      NaN  
+ArgM_MNR      0.5794   0.4882   0.5299  
+ArgM_MNS      0.5667   0.4359   0.4928  
+ArgM_NEG      0.6560   0.8454   0.7387  
+ArgM_PRP      0.6000   0.3462   0.4390  
+ArgM_PRX      0.6286   0.4731   0.5399  
+ArgM_REC      0.8049   0.7333   0.7674  
+ArgM_SCP      0.3448   0.1786   0.2353  
+ArgM_SPK         NaN      NaN      NaN  
+ArgM_TMP      0.7264   0.6404   0.6807  
+sum          14.3379  10.3798  11.5968  
+precision        NaN      NaN      NaN  
+recall           NaN      NaN      NaN  
+f1               NaN      NaN      NaN  
+f1_macro         NaN      NaN      NaN  
+
+fix_labels
+83.69868767355985
+move_arg
+85.34622694816942
+merge_span
+85.6275476749499
+split_span
+86.22620785099444
+fix_border
+89.16987722813056
+remove_arg
+90.52551980878722
+add_arg
+97.03693127736541

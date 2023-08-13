@@ -12,14 +12,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-
+from torch.optim.lr_scheduler import MultiStepLR
 from peft import PeftModel
 from peft import (
     LoraConfig,
     get_peft_model,
     get_peft_model_state_dict,
 )
-
 from transformers import AutoTokenizer
 from preprocess.base.mk_dataset import *
 from preprocess.base.netwroks import RinnaClassifierDecodeIntegrated
@@ -31,7 +30,7 @@ from utils.evaluate import cal_span_f1
 from utils.tools import filter_span_score_for_batch_1
 
 
-DATAPATH = '../../../Data/common_data_v2_rinna.json'
+DATAPATH = '../../../Data/common_data_v2_rinna2.json'
 # read data
 with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
     DATA = pd.read_json(json_file)
@@ -51,11 +50,11 @@ print(LAB2ID, '\n')
 # 各種定義
 OUTPUT_LAYER_DIM = len(LABELS)                              # 全ラベルの数
 PRED_SEP_NUM = 10 + 2                              # 述語情報のためのトークン数．sep:2, pred:8(最長)
-MAX_LENGTH = 192
+MAX_LENGTH = 254
 MAX_ARGUMENT_SEQUENCE_LENGTH = 30                       # 項の最高トークン数．（これより大きいものは予測不可能）
 MAX_TOKEN = MAX_LENGTH + PRED_SEP_NUM + 2         # BERT に入力するトークン数．+2 は BOSとEOS 分のトークン． 
 BATCH_SIZE = 16
-MODEL_NAME = 'rinna_lora_base'
+MODEL_NAME = 'rinna_lora_base_rinna2'
 print(f'MAX_TOKEN = {MAX_TOKEN}, MAX_LENGTH = {MAX_LENGTH}, MAX_ARGUMENT_SEQUENCE_LENGTH = {MAX_ARGUMENT_SEQUENCE_LENGTH}\n\n')
 
 def decode(dataset, data_df):
@@ -98,6 +97,7 @@ def decode(dataset, data_df):
                 # 各スパンの各ラベルごとのscoreを入れていく
                 token_num = MAX_LENGTH if token_num > MAX_LENGTH else token_num
                 span_possible_tuples = [(i, j) for i in range(token_num) for j in range(token_num)]
+                assert len(span_possible_tuples) == scores.shape[0], print(len(span_possible_tuples), scores.shape[0])
                 for span_idx, scores_of_a_span in zip(span_possible_tuples, scores):
                     if span_available_indication[span_idx[0], span_idx[1]] != 0:
                         for label, score in zip( list(ID2LAB.values()), scores_of_a_span ):
@@ -139,6 +139,7 @@ if __name__ == "__main__":
     DATA = DATA.sample(frac=1, random_state=0).reset_index(drop=True)
     tokenizer = AutoTokenizer.from_pretrained("rinna/japanese-gpt-neox-3.6b", use_fast=False)
     train_df, test_df, valid_df = get_train_test(MAX_LENGTH, MAX_ARGUMENT_SEQUENCE_LENGTH, DATA, LAB2ID)
+    #test_df = test_df.sample(frac=1)
 
     print(len(train_df))
     loss_function = nn.NLLLoss()    # 損失関数の設定
@@ -166,9 +167,12 @@ if __name__ == "__main__":
         print(name, param.requires_grad)
 
     optimizer = optim.AdamW([
-        {'params': classifier.parameters(), 'lr': 2e-4}
-    ])
+        {'params': classifier.parameters(), 'lr': 2e-4}])
     
+    #milestones = [4]  # エポック10と20の後で学習率を変更する例
+    #gamma = 2*0.1  # 学習率をどれだけ減らすかの係数
+    #scheduler = MultiStepLR(optimizer, milestones=milestones, gamma=gamma)
+
     """
     Train
     """
@@ -179,7 +183,7 @@ if __name__ == "__main__":
     test_dataset = mk_dataset_decode(test_df, 1, MAX_LENGTH, MAX_TOKEN, PRED_SEP_NUM, tokenizer, sort=True)
     time_start = datetime.datetime.now()
     # エポック数は5で
-    for epoch in range(25):
+    for epoch in range(30):
         all_loss = 0
         classifier.train()
         for i, (batch_features, batch_labels, batch_preds, batch_token) in enumerate(train_dataset):   # labelsはバッチ16こに対し128トークンのラベル
@@ -203,6 +207,7 @@ if __name__ == "__main__":
             label_ids = batch_labels.view(len(batch_labels), -1)            # batch_labels[batch][MAX_LENGTH][MAX_LENGTH] -> batch_labels[batch][MAX_LENGTH*MAX_LENGTH]
             label_ids = label_ids[:,span_idx].to(device)
             span_available_indication = span_available_indication.to(device)
+            
             outs = classifier(input_ids, pred_span, token_num, span_available_indication, 'train') # [batch][max][label]
             batch_loss = loss_function(outs.reshape(-1, len(LABELS)), label_ids.reshape(-1))    # (batch*max,label)  : (batch*max), 各スパンに対して，正解ラベルを用意
             batch_loss.backward()
@@ -211,6 +216,7 @@ if __name__ == "__main__":
 
             optimizer.step()
             classifier.zero_grad()  # 累積されるので，ここで初期化しなくてはならない．
+        #scheduler.step()
         print("epoch", epoch, "\t" , "loss", all_loss)
         """
         Validation
@@ -224,7 +230,7 @@ if __name__ == "__main__":
             classifier.save_pretrained(f"../../models/{MODEL_NAME}/")
             continue
 
-        elif (prev_f1 >= f1) and (patience_counter < 4):   # 10回連続でf1が下がらなければ終了
+        elif (prev_f1 >= f1) and (patience_counter < 2):   # 10回連続でf1が下がらなければ終了
             print('No change in valid f1\n') 
             if prev_f1 != 0:
                 patience_counter += 1     

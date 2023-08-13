@@ -91,6 +91,7 @@ if __name__ == "__main__":
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # GPUの設定
 
     classifier = BertClassifier(OUTPUT_LAYER_DIM, MAX_LENGTH, device).to(device)
+    classifier.load_state_dict(torch.load("../../models/srl_base_common_data_best.pth"))
     # まずは全部OFF
     for param in classifier.parameters():
         param.requires_grad = False

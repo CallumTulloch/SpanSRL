@@ -6,8 +6,14 @@ import collections
 from itertools import combinations, product
 from functools import reduce
 
+
 def find_combination_index(MAX_LEN, target):
+    #print(target)
+    # 暫定的な対処（スタートが1だけ多いものが数多く存在する．）
+    # if target[0] > target[1]:
+    #     target[0] - 1
     assert target[0] <= target[1], print('start should be lower than end')
+    
     #span_available_indication = np.zeros([MAX_LENGTH, MAX_LENGTH])
     #span_available_indication[:,:] = -1
     #for span in list(itertools.combinations_with_replacement(np.arange(n), 2)):

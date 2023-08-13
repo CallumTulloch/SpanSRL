@@ -19,21 +19,21 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 # NLPIR
-#DATAPATH = '../../../Data/common_data_v2_bert.json'
-#FORM = 'bert'
-#with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
-#    data = pd.read_json(json_file)
-
-
-# EMNLP
-DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
-EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
+DATAPATH = '../../../Data/common_data_v2_bert.json'
 FORM = 'bert'
 with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
     DATA = pd.read_json(json_file)
-    
-with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
-    EXDATA = pd.read_json(json_file)
+
+
+# EMNLP
+# DATAPATH = '../../../../Ohuchi_old/Data/data_v2_under53.json'
+# EXDATAPATH = '../../../../Ohuchi_old/Data/data_v2_extra2.json'
+# FORM = 'bert'
+# with open(DATAPATH, 'r', encoding="utf-8_sig") as json_file:
+#     DATA = pd.read_json(json_file)
+#     
+# with open(EXDATAPATH, 'r', encoding="utf-8_sig") as json_file:
+#     EXDATA = pd.read_json(json_file)
 
 
 # 正解ラベル（カテゴリー）をデータセットから取得
@@ -63,7 +63,7 @@ for span in list(itertools.combinations_with_replacement(np.arange(MAX_LENGTH), 
         SPAN_AVAILABLE_INDICATION[span[0], span[1]] = 1
         num_of_span_vec += 1
 NUM_OF_SPAN_VEC = num_of_span_vec
-MODEL_NAME = 'span2_emnlp'
+MODEL_NAME = 'span2_common_data'
 print(f'MAX_TOKEN = {MAX_TOKEN}, MAX_LENGTH = {MAX_LENGTH}, MAX_ARGUMENT_SEQUENCE_LENGTH = {MAX_ARGUMENT_SEQUENCE_LENGTH}\n\n')
 
 # 各種データ作成（学習，テスト，検証）
@@ -71,12 +71,12 @@ DATA = DATA.sample(frac=1, random_state=0).reset_index(drop=True)
 train_df, test_df, valid_df = get_train_test(MAX_LENGTH, DATA, lab2id)
 
 # EMNLP
-EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
-extrain_df, extest_df, exvalid_df = get_train_test(MAX_LENGTH, EXDATA, lab2id)
-train_df=pd.concat([train_df,extrain_df],axis=0)
-test_df=pd.concat([test_df,extest_df],axis=0)
-valid_df=pd.concat([valid_df,exvalid_df],axis=0)
-print(len(test_df))
+# EXDATA = EXDATA.sample(frac=1, random_state=0).reset_index(drop=True)
+# extrain_df, extest_df, exvalid_df = get_train_test(MAX_LENGTH, EXDATA, lab2id)
+# train_df=pd.concat([train_df,extrain_df],axis=0)
+# test_df=pd.concat([test_df,extest_df],axis=0)
+# valid_df=pd.concat([valid_df,exvalid_df],axis=0)
+# print(len(test_df))
 
 # span2 はバックワードの時に30以上の場合学習に影響が出る．複数あるargの内，全てが30以上の場合はデータ削除
 #train_df['arg_len'] = train_df['original_args_info'].map(lambda x: min(len(arg['surface'].split(' ')) for arg in x))
@@ -277,7 +277,7 @@ def whether_to_stop(epoch):
         torch.save(classifier.state_dict(), f"../../models/srl_{MODEL_NAME}_best.pth")
         return False
 
-    elif (prev_f1 >= f1) and (patience_counter < 4):   # 10回連続でf1が下がらなければ終了
+    elif (prev_f1 >= f1) and (patience_counter < 2):   # 10回連続でf1が下がらなければ終了
         print('No change in valid f1\n') 
         patience_counter += 1     
         return False

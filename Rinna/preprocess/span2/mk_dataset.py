@@ -14,7 +14,7 @@ def tokenize(wakati, pred, max_length, max_token, pred_sep_num, tokenizer):
         front_padding_num = max_length - token_num
         back_padding_num = max_token - max_length - pred_sep_num - 2 # -1 は cls
         tokens = ['<s>'] + wakati.split(' ') + ['</s>'] + ['[PAD]']*front_padding_num + ['[SEP]'] + pred['surface'].split(' ')[:pred_token_num] + ['</s>'] + ['[PAD]']*back_padding_num
-    else:
+    else:   # TODO:ここ間違えてるぽい. 現在はelseに行かないから問題はない
         padding_num = max_token - max_length - pred_sep_num - 1 # padding >= 0 は保証
         tokens = ['<s>'] + wakati.split(' ')[:max_length] + ['</s>'] + ['[SEP]'] + pred['surface'].split(' ')[:pred_token_num] + + ['</s>'] + ['[PAD]']*padding_num
     assert len(tokens) == max_token
